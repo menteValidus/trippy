@@ -49,6 +49,7 @@
 		0BA558112658ED2A00EAE191 /* TrippyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrippyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA558152658ED2A00EAE191 /* TrippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyUITests.swift; sourceTree = "<group>"; };
 		0BA558172658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BA55826265A2E4600EAE191 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Coordinator; path = Packages/Coordinator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		0BA557E72658ED2900EAE191 = {
 			isa = PBXGroup;
 			children = (
+				0BA55826265A2E4600EAE191 /* Coordinator */,
 				0BA557F22658ED2900EAE191 /* Trippy */,
 				0BA558092658ED2A00EAE191 /* TrippyTests */,
 				0BA558142658ED2A00EAE191 /* TrippyUITests */,
@@ -99,9 +101,9 @@
 		0BA557F22658ED2900EAE191 /* Trippy */ = {
 			isa = PBXGroup;
 			children = (
+				0BA55823265A2A0200EAE191 /* Views */,
 				0BA557F32658ED2900EAE191 /* AppDelegate.swift */,
 				0BA557F52658ED2900EAE191 /* SceneDelegate.swift */,
-				0BA557F72658ED2900EAE191 /* ViewController.swift */,
 				0BA557F92658ED2900EAE191 /* Main.storyboard */,
 				0BA557FC2658ED2A00EAE191 /* Assets.xcassets */,
 				0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */,
@@ -126,6 +128,22 @@
 				0BA558172658ED2A00EAE191 /* Info.plist */,
 			);
 			path = TrippyUITests;
+			sourceTree = "<group>";
+		};
+		0BA55823265A2A0200EAE191 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BA55824265A2A0F00EAE191 /* InitialRouteCreation */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0BA55824265A2A0F00EAE191 /* InitialRouteCreation */ = {
+			isa = PBXGroup;
+			children = (
+				0BA557F72658ED2900EAE191 /* ViewController.swift */,
+			);
+			path = InitialRouteCreation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
