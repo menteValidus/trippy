@@ -24,6 +24,7 @@ final class RouteCreationCoordinator: BaseCoordinator {
     
     override func start() {
         let vc = RouteCreationViewController()
+        vc.overrideUserInterfaceStyle = .dark
         present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         
         presentedViewController = vc
