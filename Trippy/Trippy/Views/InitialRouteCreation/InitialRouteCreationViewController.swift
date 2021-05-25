@@ -6,15 +6,13 @@
 //
 
 import UIKit
+import TrippyUI
 
 class InitialRouteCreationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 69.0 / 255.0, green: 0.0, blue: 197.0 / 255.0, alpha: 1.0)
-        // Do any additional setup after loading the view.
+        view.backgroundColor = Asset.Color.primaryBackground.uiColor
     }
-
-
 }
 

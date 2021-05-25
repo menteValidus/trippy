@@ -6,6 +6,7 @@
 //
 
 import Coordinator
+import TrippyUI
 import UIKit
 
 class AppCoordinator: BaseCoordinator {

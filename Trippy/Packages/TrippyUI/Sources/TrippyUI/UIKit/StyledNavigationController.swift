@@ -7,9 +7,9 @@
 
 import UIKit
 
-class StyledNavigationController: UINavigationController {
+public class StyledNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationBarHidden(true, animated: false)
