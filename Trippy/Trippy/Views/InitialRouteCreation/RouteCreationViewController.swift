@@ -72,10 +72,10 @@ extension RouteCreationViewController: UICollectionViewDelegate {
 extension RouteCreationViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        .init()
+        CornerWaypointCollectionViewCell()
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import TrippyUI
+import Stevia
 
 class CornerWaypointCollectionViewCell: UICollectionViewCell {
     
@@ -26,14 +27,12 @@ class CornerWaypointCollectionViewCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        addSubview(waypointView)
+        subviews(waypointView)
         
-        NSLayoutConstraint.activate([
-                                        waypointView.topAnchor.constraint(equalTo: topAnchor),
-            waypointView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            waypointView.widthAnchor.constraint(equalToConstant: waypointDiameter),
-            waypointView.heightAnchor.constraint(equalTo: waypointView.widthAnchor)
-        ])
+        waypointView.Leading == Leading
+        waypointView.Top == Top
+        waypointView.Height == waypointDiameter
+        waypointView.Width == waypointView.Height
     }
 }
 
@@ -44,7 +43,6 @@ private extension CornerWaypointCollectionViewCell {
     func createWaypointView() -> WaypointView {
         let waypointView = WaypointView(frame: .zero)
         waypointView.backgroundColor = Asset.Color.accent.uiColor
-        waypointView.translatesAutoresizingMaskIntoConstraints = false
         
         return waypointView
     }
