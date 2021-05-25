@@ -1,5 +1,5 @@
 //
-//  StartingWaypointCollectionViewCell.swift
+//  CornerWaypointCollectionViewCell.swift
 //  Trippy
 //
 //  Created by Denis Cherniy on 25.05.2021.
@@ -8,7 +8,7 @@
 import UIKit
 import TrippyUI
 
-class StartingWaypointCollectionViewCell: UICollectionViewCell {
+class CornerWaypointCollectionViewCell: UICollectionViewCell {
     
     private let waypointDiameter: CGFloat = 22
     
@@ -39,7 +39,7 @@ class StartingWaypointCollectionViewCell: UICollectionViewCell {
 
 // MARK: - Views Creation
 
-private extension StartingWaypointCollectionViewCell {
+private extension CornerWaypointCollectionViewCell {
     
     func createWaypointView() -> WaypointView {
         let waypointView = WaypointView(frame: .zero)
@@ -54,7 +54,7 @@ private extension StartingWaypointCollectionViewCell {
 
 import SwiftUI
 
-struct StartingWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepresentable {
+struct CornerWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepresentable {
     
     static var previews: some View {
         Self()
@@ -62,7 +62,7 @@ struct StartingWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepre
     }
     
     func makeUIView(context: Context) -> some UIView {
-        StartingWaypointCollectionViewCell()
+        CornerWaypointCollectionViewCell()
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
