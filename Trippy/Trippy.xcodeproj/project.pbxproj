@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */; };
+		0B0EFE72265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */; };
+		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
-		0BA557F82658ED2900EAE191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* ViewController.swift */; };
+		0BA557F82658ED2900EAE191 /* InitialRouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */; };
 		0BA557FB2658ED2900EAE191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557F92658ED2900EAE191 /* Main.storyboard */; };
 		0BA557FD2658ED2A00EAE191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FC2658ED2A00EAE191 /* Assets.xcassets */; };
 		0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */; };
@@ -35,10 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRouteCreationCoordinator.swift; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA557F52658ED2900EAE191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BA557F72658ED2900EAE191 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRouteCreationViewController.swift; sourceTree = "<group>"; };
 		0BA557FA2658ED2900EAE191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BA557FC2658ED2A00EAE191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA557FF2658ED2A00EAE191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B0EFE6E265C23DE00C2EFC2 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				0BA557F32658ED2900EAE191 /* AppDelegate.swift */,
+				0BA557F52658ED2900EAE191 /* SceneDelegate.swift */,
+				0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		0B0EFE73265CBEDA00C2EFC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0BA557E72658ED2900EAE191 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +109,7 @@
 				0BA558092658ED2A00EAE191 /* TrippyTests */,
 				0BA558142658ED2A00EAE191 /* TrippyUITests */,
 				0BA557F12658ED2900EAE191 /* Products */,
+				0B0EFE73265CBEDA00C2EFC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,9 +126,8 @@
 		0BA557F22658ED2900EAE191 /* Trippy */ = {
 			isa = PBXGroup;
 			children = (
+				0B0EFE6E265C23DE00C2EFC2 /* Startup */,
 				0BA55823265A2A0200EAE191 /* Views */,
-				0BA557F32658ED2900EAE191 /* AppDelegate.swift */,
-				0BA557F52658ED2900EAE191 /* SceneDelegate.swift */,
 				0BA557F92658ED2900EAE191 /* Main.storyboard */,
 				0BA557FC2658ED2A00EAE191 /* Assets.xcassets */,
 				0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */,
@@ -143,7 +166,8 @@
 		0BA55824265A2A0F00EAE191 /* InitialRouteCreation */ = {
 			isa = PBXGroup;
 			children = (
-				0BA557F72658ED2900EAE191 /* ViewController.swift */,
+				0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */,
+				0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */,
 			);
 			path = InitialRouteCreation;
 			sourceTree = "<group>";
@@ -164,6 +188,9 @@
 			dependencies = (
 			);
 			name = Trippy;
+			packageProductDependencies = (
+				0B0EFE74265CBEDA00C2EFC2 /* Coordinator */,
+			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
 			productType = "com.apple.product-type.application";
@@ -278,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BA557F82658ED2900EAE191 /* ViewController.swift in Sources */,
+				0B0EFE72265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift in Sources */,
+				0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */,
+				0BA557F82658ED2900EAE191 /* InitialRouteCreationViewController.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
 				0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */,
 			);
@@ -613,6 +642,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B0EFE74265CBEDA00C2EFC2 /* Coordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Coordinator;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0BA557E82658ED2900EAE191 /* Project object */;
 }

@@ -8,10 +8,18 @@
 import Foundation
 import UIKit
 
+// TODO: Add tests for uncovered parts
+
 // It has to be successor of NSObject because some descestors
 // might be delegates that require NSObject protocol conformance.
 open class BaseCoordinator: NSObject, Coordinator, CoordinatorDelegate {
     internal var coordinators: [Coordinator] = []
+    
+    deinit {
+        coordinators.forEach {
+            remove(dependency: $0)
+        }
+    }
 
     open func start() {
         fatalError("Not implemented")
