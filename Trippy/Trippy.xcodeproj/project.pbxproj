@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationCoordinator.swift; sourceTree = "<group>"; };
-		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TrippyUI; path = Packages/TrippyUI; sourceTree = "<group>"; };
+		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TrippyUI; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA557F52658ED2900EAE191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		0BA558112658ED2A00EAE191 /* TrippyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrippyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA558152658ED2A00EAE191 /* TrippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyUITests.swift; sourceTree = "<group>"; };
 		0BA558172658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BA55826265A2E4600EAE191 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Coordinator; path = Packages/Coordinator; sourceTree = "<group>"; };
+		0BA55826265A2E4600EAE191 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Coordinator; sourceTree = "<group>"; };
 		0BA55827265A342B00EAE191 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,11 +112,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0B0EFE7D265CD1CA00C2EFC2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				0BA55826265A2E4600EAE191 /* Coordinator */,
+				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		0BA557E72658ED2900EAE191 = {
 			isa = PBXGroup;
 			children = (
-				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
-				0BA55826265A2E4600EAE191 /* Coordinator */,
+				0B0EFE7D265CD1CA00C2EFC2 /* Packages */,
 				0BA557F22658ED2900EAE191 /* Trippy */,
 				0BA558092658ED2A00EAE191 /* TrippyTests */,
 				0BA558142658ED2A00EAE191 /* TrippyUITests */,
