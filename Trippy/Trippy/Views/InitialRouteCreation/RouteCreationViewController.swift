@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RouteCreationViewController.swift
 //  Trippy
 //
 //  Created by Denis Cherniy on 22.05.2021.
@@ -8,7 +8,7 @@
 import UIKit
 import TrippyUI
 
-class InitialRouteCreationViewController: UIViewController {
+class RouteCreationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

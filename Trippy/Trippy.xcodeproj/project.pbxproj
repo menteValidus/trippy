@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */; };
-		0B0EFE72265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */; };
+		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
 		0B0EFE7B265CC9E400C2EFC2 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE7A265CC9E400C2EFC2 /* TrippyUI */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
-		0BA557F82658ED2900EAE191 /* InitialRouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */; };
+		0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */; };
 		0BA557FD2658ED2A00EAE191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FC2658ED2A00EAE191 /* Assets.xcassets */; };
 		0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */; };
 		0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */; };
@@ -39,12 +39,12 @@
 
 /* Begin PBXFileReference section */
 		0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRouteCreationCoordinator.swift; sourceTree = "<group>"; };
+		0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationCoordinator.swift; sourceTree = "<group>"; };
 		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TrippyUI; path = Packages/TrippyUI; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA557F52658ED2900EAE191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRouteCreationViewController.swift; sourceTree = "<group>"; };
+		0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationViewController.swift; sourceTree = "<group>"; };
 		0BA557FC2658ED2A00EAE191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA557FF2658ED2A00EAE191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BA558012658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 		0BA55824265A2A0F00EAE191 /* InitialRouteCreation */ = {
 			isa = PBXGroup;
 			children = (
-				0BA557F72658ED2900EAE191 /* InitialRouteCreationViewController.swift */,
-				0B0EFE71265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift */,
+				0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */,
+				0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */,
 			);
 			path = InitialRouteCreation;
 			sourceTree = "<group>";
@@ -314,9 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B0EFE72265C276600C2EFC2 /* InitialRouteCreationCoordinator.swift in Sources */,
+				0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */,
 				0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */,
-				0BA557F82658ED2900EAE191 /* InitialRouteCreationViewController.swift in Sources */,
+				0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
 				0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */,
 			);

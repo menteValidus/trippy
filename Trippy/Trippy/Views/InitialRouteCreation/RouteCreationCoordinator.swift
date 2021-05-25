@@ -1,5 +1,5 @@
 //
-//  InitialRouteCreationCoordinator.swift
+//  RouteCreationCoordinator.swift
 //  Trippy
 //
 //  Created by Denis Cherniy on 24.05.2021.
@@ -8,12 +8,12 @@
 import UIKit
 import Coordinator
 
-protocol InitialRouteCreationCoordinatorDelegate: CoordinatorDelegate {
+protocol RouteCreationCoordinatorDelegate: CoordinatorDelegate {
     
 }
 
-final class InitialRouteCreationCoordinator: BaseCoordinator {
-    weak var delegate: InitialRouteCreationCoordinatorDelegate?
+final class RouteCreationCoordinator: BaseCoordinator {
+    weak var delegate: RouteCreationCoordinatorDelegate?
     
     private var presentingViewController: UIViewController
     private var presentedViewController: UIViewController?
@@ -23,7 +23,7 @@ final class InitialRouteCreationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        let vc = InitialRouteCreationViewController()
+        let vc = RouteCreationViewController()
         present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         
         presentedViewController = vc

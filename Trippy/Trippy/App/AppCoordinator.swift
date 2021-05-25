@@ -33,7 +33,7 @@ private extension AppCoordinator {
     func navigateToInitialScreen() {
         guard let presentingVC = presentedViewController else { return }
         
-        let coordinator = InitialRouteCreationCoordinator(presentingVC: presentingVC)
+        let coordinator = RouteCreationCoordinator(presentingVC: presentingVC)
         coordinator.delegate = self
         coordinator.start()
         
@@ -41,4 +41,4 @@ private extension AppCoordinator {
     }
 }
 
-extension AppCoordinator: InitialRouteCreationCoordinatorDelegate { }
+extension AppCoordinator: RouteCreationCoordinatorDelegate { }
