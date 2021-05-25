@@ -19,11 +19,11 @@ class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        let vc = UINavigationController()
+        let vc = StyledNavigationController()
         window.rootViewController = vc
-        window.makeKeyAndVisible()
-        
         presentedViewController = vc
+        
+        navigateToInitialScreen()
     }
 }
 
