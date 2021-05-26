@@ -42,13 +42,9 @@ private extension RouteCreationViewController {
     }
     
     func configureCollectionView() {
-        view.addSubview(collectionView)
+        view.subviews(collectionView)
         
-        NSLayoutConstraint.activate(
-            [collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+        collectionView.fillContainer()
     }
 }
 
