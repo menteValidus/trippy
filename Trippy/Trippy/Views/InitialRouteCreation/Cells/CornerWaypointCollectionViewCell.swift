@@ -8,16 +8,7 @@
 import UIKit
 import TrippyUI
 import Stevia
-
-public protocol ReuseIdentifiable {
-    static var reuseIdentifier: String { get }
-}
-
-public extension ReuseIdentifiable {
-    static var reuseIdentifier: String {
-        String(describing: self) + "ReuseIdentifier"
-    }
-}
+import UIUtils
 
 class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
     
