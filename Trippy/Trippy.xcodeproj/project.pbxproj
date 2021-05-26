@@ -14,6 +14,7 @@
 		0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */; };
 		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
 		0B7DC3A6265EB16700C743B2 /* RouteCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */; };
+		0B7DC3A8265EC1E800C743B2 /* AddWaypointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */; };
 		0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AA265EC2C300C743B2 /* UIUtils */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TrippyUI; sourceTree = "<group>"; };
 		0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypointCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationViewModel.swift; sourceTree = "<group>"; };
+		0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaypointCell.swift; sourceTree = "<group>"; };
 		0B7DC3A9265EC22100C743B2 /* UIUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIUtils; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */,
+				0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */,
 				0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */,
 				0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */,
+				0B7DC3A8265EC1E800C743B2 /* AddWaypointCell.swift in Sources */,
 				0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
 				0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */,

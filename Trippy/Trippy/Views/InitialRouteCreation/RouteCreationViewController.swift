@@ -63,6 +63,8 @@ private extension RouteCreationViewController {
         
         collectionView.register(CornerWaypointCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier)
+        collectionView.register(AddWaypointCollectionViewCell.self,
+                                forCellWithReuseIdentifier: AddWaypointCollectionViewCell.reuseIdentifier)
         
         return collectionView
     }

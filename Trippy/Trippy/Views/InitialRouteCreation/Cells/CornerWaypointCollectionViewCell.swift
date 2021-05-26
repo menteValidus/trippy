@@ -19,7 +19,7 @@ class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable 
     // MARK: - Views
     
     private lazy var waypointTypeLabel: UILabel = createWaypointTypeLabel()
-    private lazy var waypointView: WaypointView = createWaypointView()
+    private lazy var waypointView: CircleView = createWaypointView()
     private lazy var geopointDescriptionLabel: UILabel = createGeocodeDescriptionLabel()
     
     private lazy var separatorView: HorizontalDashedLineView = createSeparatorView()
@@ -111,8 +111,8 @@ private extension CornerWaypointCollectionViewCell {
         return label
     }
     
-    func createWaypointView() -> WaypointView {
-        let waypointView = WaypointView()
+    func createWaypointView() -> CircleView {
+        let waypointView = CircleView()
         waypointView.backgroundColor = Asset.Color.accent.uiColor
         
         return waypointView
