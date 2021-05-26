@@ -10,8 +10,17 @@ import TrippyUI
 
 class RouteCreationViewController: UIViewController {
     
+    // MARK: - Constants
+    
+    private let cellsSpacing: CGFloat = 30
+    private let horizontalCellPadding: CGFloat = 30
+    
+    // MARK: - Views
+    
     private lazy var collectionView: UICollectionView = createCollectionView()
 
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,14 +53,9 @@ private extension RouteCreationViewController {
 private extension RouteCreationViewController {
     
     func createCollectionView() -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 30
-        layout.sectionInsetReference = .fromContentInset
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
         let collectionView = UICollectionView(frame: .zero,
-                                              collectionViewLayout: layout)
+                                              collectionViewLayout: createCompositionalLayout())
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -61,6 +65,26 @@ private extension RouteCreationViewController {
                                 forCellWithReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier)
         
         return collectionView
+    }
+    
+    func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        let size = NSCollectionLayoutSize(
+            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+            heightDimension: NSCollectionLayoutDimension.estimated(44)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size,
+                                                       subitem: item,
+                                                       count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                        leading: horizontalCellPadding,
+                                                        bottom: 0,
+                                                        trailing: horizontalCellPadding)
+        section.interGroupSpacing = cellsSpacing
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
 
@@ -78,7 +102,32 @@ extension RouteCreationViewController: UICollectionViewDataSource {
         1
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        CornerWaypointCollectionViewCell()
+        collectionView.dequeueReusableCell(withReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier, for: indexPath)
     }
 }
+
+
+#if DEBUG
+
+import SwiftUI
+
+struct RouteCreationViewController_Previews: PreviewProvider, UIViewControllerRepresentable {
+    
+    static var previews: some View {
+        Self()
+            .previewLayout(.sizeThatFits)
+    }
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        RouteCreationViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
+}
+
+#endif
