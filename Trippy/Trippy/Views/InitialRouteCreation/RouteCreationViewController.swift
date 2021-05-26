@@ -57,6 +57,9 @@ private extension RouteCreationViewController {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
+        collectionView.register(CornerWaypointCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier)
+        
         return collectionView
     }
 }

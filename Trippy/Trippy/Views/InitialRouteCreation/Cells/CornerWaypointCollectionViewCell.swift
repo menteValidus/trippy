@@ -9,7 +9,17 @@ import UIKit
 import TrippyUI
 import Stevia
 
-class CornerWaypointCollectionViewCell: UICollectionViewCell {
+public protocol ReuseIdentifiable {
+    static var reuseIdentifier: String { get }
+}
+
+public extension ReuseIdentifiable {
+    static var reuseIdentifier: String {
+        String(describing: self) + "ReuseIdentifier"
+    }
+}
+
+class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
     
     // MARK: - Constants
     
@@ -32,8 +42,14 @@ class CornerWaypointCollectionViewCell: UICollectionViewCell {
         commonInit()
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
     }
     
     private func commonInit() {
