@@ -154,7 +154,11 @@ struct RouteCreationViewController_Previews: PreviewProvider, UIViewControllerRe
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        RouteCreationViewController()
+        let vc = RouteCreationViewController()
+        let vm = RouteCreationViewModel()
+        vc.viewModel = vm
+        
+        return vc
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
