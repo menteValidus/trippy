@@ -8,9 +8,7 @@
 import UIKit
 import Coordinator
 
-protocol RouteCreationCoordinatorDelegate: CoordinatorDelegate {
-    
-}
+protocol RouteCreationCoordinatorDelegate: CoordinatorDelegate { }
 
 final class RouteCreationCoordinator: BaseCoordinator {
     weak var delegate: RouteCreationCoordinatorDelegate?
@@ -25,8 +23,11 @@ final class RouteCreationCoordinator: BaseCoordinator {
     override func start() {
         let vc = RouteCreationViewController()
         vc.overrideUserInterfaceStyle = .dark
-        present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         
+        let vm = RouteCreationViewModel()
+        vc.viewModel = vm
+        
+        present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         presentedViewController = vc
     }
 }

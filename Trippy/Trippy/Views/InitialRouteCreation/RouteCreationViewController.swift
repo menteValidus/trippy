@@ -15,6 +15,10 @@ class RouteCreationViewController: UIViewController {
     private let cellsSpacing: CGFloat = 30
     private let horizontalCellPadding: CGFloat = 30
     
+    // MARK: - Public Properties
+    
+    var viewModel: RouteCreationViewModel!
+    
     // MARK: - Views
     
     private lazy var collectionView: UICollectionView = createCollectionView()
@@ -99,18 +103,44 @@ extension RouteCreationViewController: UICollectionViewDelegate {
 extension RouteCreationViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        switch Section(rawValue: section) {
+        case .start:
+            return 1
+            
+        case .intermediate:
+            return numberOfItemsInIntermediateSection(for: viewModel.intermediateWaypoints.count)
+            
+        case .end:
+            return 1
+            
+        case .none:
+            return 0
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        Section.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         collectionView.dequeueReusableCell(withReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier, for: indexPath)
     }
+    
+    // MARK: Helper Methods
+    
+    private func numberOfItemsInIntermediateSection(for itemsCount: Int) -> Int {
+        itemsCount * 2 + 1
+    }
 }
 
+extension RouteCreationViewController {
+    
+    enum Section: Int, CaseIterable {
+        case start
+        case intermediate
+        case end
+    }
+}
 
 #if DEBUG
 
