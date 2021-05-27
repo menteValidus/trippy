@@ -7,6 +7,7 @@
 
 import UIKit
 import TrippyUI
+import Combine
 
 class RouteCreationViewController: UIViewController {
     
@@ -19,6 +20,10 @@ class RouteCreationViewController: UIViewController {
     
     var viewModel: RouteCreationViewModel!
     
+    // MARK: - Private Properties
+    
+    private var cancelBag: Set<AnyCancellable> = []
+    
     // MARK: - Views
     
     private lazy var collectionView: UICollectionView = createCollectionView()
@@ -30,6 +35,16 @@ class RouteCreationViewController: UIViewController {
         
         configureRootView()
         configureCollectionView()
+        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.$intermediateWaypoints
+            .sink { [weak self] _ in
+                self?.collectionView.reloadSections([Section.intermediate.rawValue])
+            }
+            .store(in: &cancelBag)
     }
 }
 
@@ -59,7 +74,6 @@ private extension RouteCreationViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.register(CornerWaypointCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier)
@@ -95,7 +109,9 @@ private extension RouteCreationViewController {
 // MARK: - UICollectionViewDelegate
 
 extension RouteCreationViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -150,7 +166,7 @@ extension RouteCreationViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Collectio View Cells
+// MARK: - Collection View Cells
 
 private extension RouteCreationViewController {
     
@@ -159,12 +175,27 @@ private extension RouteCreationViewController {
         let isEven = indexPath.row % 2 == 0
         
         if isEven {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: AddWaypointCollectionViewCell.reuseIdentifier,
-                                                      for: indexPath)
+            return addWaypointCell(in: collectionView,
+                                   for: indexPath)
         } else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: IntermediateWaypointCollectionViewCell.reuseIdentifier,
                                                       for: indexPath)
         }
+    }
+    
+    func addWaypointCell(in collectionView: UICollectionView,
+                         for indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddWaypointCollectionViewCell.reuseIdentifier,
+                                                            for: indexPath) as? AddWaypointCollectionViewCell else {
+            assertionFailure("Unknown cell")
+            return .init()
+        }
+        
+        cell.setTapAction { [weak self] in
+            self?.viewModel.insertWaypoint(at: indexPath.row / 2)
+        }
+        
+        return cell
     }
 }
 
@@ -191,7 +222,7 @@ struct RouteCreationViewController_Previews: PreviewProvider, UIViewControllerRe
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let vc = RouteCreationViewController()
-        let vm = RouteCreationViewModel()
+        let vm = RouteCreationViewModel(flow: .init())
         vc.viewModel = vm
         
         return vc

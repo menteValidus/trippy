@@ -9,8 +9,11 @@ import UIKit
 import UIUtils
 import TrippyUI
 import Stevia
+import Utils
 
 final class AddWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
+    
+    typealias ButtonAction = () -> Void
     
     // MARK: - Constants
     
@@ -19,6 +22,10 @@ final class AddWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiab
     // MARK: - Views
     
     private lazy var addButton: RoundedButton = createAddButton()
+    
+    // MARK: - Private Properties
+    
+    private var tapAction: ButtonAction?
     
     // MARK: - Initialization
     
@@ -44,6 +51,23 @@ final class AddWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiab
         addButton.fillVertically()
         addButton.Height == addButtonDiameter
         addButton.Width == addButton.Height
+        
+        addButton.addTarget(self,
+                            action: #selector(addButtonTapped),
+                            for: .touchUpInside)
+    }
+    
+    // MARK: - Public Methods
+    
+    func setTapAction(_ tapAction: @escaping ButtonAction) {
+        self.tapAction = tapAction
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    private func addButtonTapped() {
+        tapAction?()
     }
 }
 

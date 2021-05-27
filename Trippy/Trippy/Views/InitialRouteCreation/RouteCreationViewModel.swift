@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Utils
 
 struct WaypointData {
     let name: String
@@ -17,7 +18,27 @@ extension WaypointData {
     }
 }
 
-final class RouteCreationViewModel: ObservableObject {
+final class RouteCreationViewModel: ViewModel {
+    struct Flow {
+        var addWaypoint: Callback?
+    }
+    
+    private let flow: Flow
+    
     @Published var intermediateWaypoints: [WaypointData] = [.mock,
                                                             .mock]
+    
+    init(flow: Flow) {
+        self.flow = flow
+    }
+    
+    func addWaypoint() {
+        intermediateWaypoints.append(.mock)
+        flow.addWaypoint?()
+    }
+    
+    func insertWaypoint(at position: Int) {
+        intermediateWaypoints.insert(.mock,
+                                     at: position)
+    }
 }

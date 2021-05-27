@@ -4,21 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "TrippyUI",
+    name: "Utils",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "TrippyUI",
-            targets: ["TrippyUI"]),
+            name: "Utils",
+            targets: ["Utils"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "TrippyUI",
-            dependencies: [],
-            resources: [.process("Assets/Colors.xcassets"),
-                        .process("Assets/Images.xcassets")])
+            name: "Utils",
+            dependencies: []),
     ]
 )

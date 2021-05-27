@@ -24,7 +24,7 @@ final class RouteCreationCoordinator: BaseCoordinator {
         let vc = RouteCreationViewController()
         vc.overrideUserInterfaceStyle = .dark
         
-        let vm = RouteCreationViewModel()
+        let vm = RouteCreationViewModel(flow: .init())
         vc.viewModel = vm
         
         present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
