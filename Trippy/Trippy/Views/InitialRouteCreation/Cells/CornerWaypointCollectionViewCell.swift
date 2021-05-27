@@ -20,11 +20,11 @@ final class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentif
     
     private lazy var waypointTypeLabel: UILabel = createWaypointTypeLabel()
     private lazy var waypointView: CircleView = createWaypointView()
-    private lazy var geopointDescriptionLabel: UILabel = createGeocodeDescriptionLabel()
+    private lazy var geopointDescriptionLabel: StyledLabel = createGeocodeDescriptionLabel()
     
     private lazy var separatorView: HorizontalDashedLineView = createSeparatorView()
     
-    private lazy var dateLabel: UILabel = createDateLabel()
+    private lazy var dateLabel: StyledLabel = createDateLabel()
     
     // MARK: - Initialization
     
@@ -118,9 +118,8 @@ private extension CornerWaypointCollectionViewCell {
         return waypointView
     }
     
-    func createGeocodeDescriptionLabel() -> UILabel {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
+    func createGeocodeDescriptionLabel() -> StyledLabel {
+        let label = StyledLabel()
         label.textColor = Asset.Color.Text.primary.uiColor
         label.text = "Taganrog,\nGrecheskaya, 104A"
         label.numberOfLines = 0
@@ -137,9 +136,8 @@ private extension CornerWaypointCollectionViewCell {
         return separatorView
     }
     
-    func createDateLabel() -> UILabel {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
+    func createDateLabel() -> StyledLabel {
+        let label = StyledLabel()
         label.textColor = Asset.Color.Text.primary.uiColor
         label.text = "14/08/2021\n6:00"
         label.numberOfLines = 0

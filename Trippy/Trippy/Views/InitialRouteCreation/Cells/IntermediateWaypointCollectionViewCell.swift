@@ -19,7 +19,7 @@ final class IntermediateWaypointCollectionViewCell: UICollectionViewCell, ReuseI
     // MARK: - Views
     
     private lazy var waypointView: CircleView = createWaypointView()
-    private lazy var geopointDescriptionLabel: UILabel = createGeocodeDescriptionLabel()
+    private lazy var geopointDescriptionLabel: StyledLabel = createGeocodeDescriptionLabel()
     
     // MARK: - Initialization
     
@@ -78,9 +78,8 @@ private extension IntermediateWaypointCollectionViewCell {
         return waypointView
     }
     
-    func createGeocodeDescriptionLabel() -> UILabel {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 30)
+    func createGeocodeDescriptionLabel() -> StyledLabel {
+        let label = StyledLabel()
         label.textColor = Asset.Color.Text.primary.uiColor
         label.text = "Taganrog,\nGrecheskaya, 104A"
         label.numberOfLines = 0
