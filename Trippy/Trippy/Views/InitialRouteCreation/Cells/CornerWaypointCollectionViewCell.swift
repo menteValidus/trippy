@@ -10,7 +10,7 @@ import TrippyUI
 import Stevia
 import UIUtils
 
-class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
+final class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
     
     // MARK: - Constants
     

@@ -65,6 +65,8 @@ private extension RouteCreationViewController {
                                 forCellWithReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier)
         collectionView.register(AddWaypointCollectionViewCell.self,
                                 forCellWithReuseIdentifier: AddWaypointCollectionViewCell.reuseIdentifier)
+        collectionView.register(IntermediateWaypointCollectionViewCell.self,
+                                forCellWithReuseIdentifier: IntermediateWaypointCollectionViewCell.reuseIdentifier)
         
         return collectionView
     }
@@ -121,7 +123,24 @@ extension RouteCreationViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier, for: indexPath)
+        switch Section(rawValue: indexPath.section) {
+        case .start:
+            return collectionView.dequeueReusableCell(withReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier,
+                                                      for: indexPath)
+            
+        case .intermediate:
+            return intermediateWaypointCell(in: collectionView,
+                                            for: indexPath)
+            
+        case .end:
+            return collectionView.dequeueReusableCell(withReuseIdentifier: CornerWaypointCollectionViewCell.reuseIdentifier,
+                                                      for: indexPath)
+            
+        default:
+            assertionFailure("unknown cell")
+            return .init()
+        }
+        
     }
     
     // MARK: Helper Methods
@@ -130,6 +149,25 @@ extension RouteCreationViewController: UICollectionViewDataSource {
         itemsCount * 2 + 1
     }
 }
+
+// MARK: - Collectio View Cells
+
+private extension RouteCreationViewController {
+    
+    func intermediateWaypointCell(in collectionView: UICollectionView,
+                                  for indexPath: IndexPath) -> UICollectionViewCell {
+        let isEven = indexPath.row % 2 == 0
+        
+        if isEven {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: AddWaypointCollectionViewCell.reuseIdentifier,
+                                                      for: indexPath)
+        } else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: IntermediateWaypointCollectionViewCell.reuseIdentifier,
+                                                      for: indexPath)
+        }
+    }
+}
+
 
 extension RouteCreationViewController {
     

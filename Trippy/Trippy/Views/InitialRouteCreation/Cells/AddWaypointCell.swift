@@ -10,7 +10,7 @@ import UIUtils
 import TrippyUI
 import Stevia
 
-class AddWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
+final class AddWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
     
     // MARK: - Constants
     
@@ -70,7 +70,7 @@ struct AddWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepresenta
     static var previews: some View {
         Self()
             .background(Asset.Color.primaryBackground.color)
-            .previewLayout(.fixed(width: 314, height: 220))
+            .previewLayout(.fixed(width: 60, height: 60))
     }
     
     func makeUIView(context: Context) -> some UIView {
