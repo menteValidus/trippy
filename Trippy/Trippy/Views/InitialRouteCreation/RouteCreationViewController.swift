@@ -84,7 +84,7 @@ private extension RouteCreationViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0,
                                                         leading: horizontalCellPadding,
-                                                        bottom: 0,
+                                                        bottom: cellsSpacing,
                                                         trailing: horizontalCellPadding)
         section.interGroupSpacing = cellsSpacing
         
