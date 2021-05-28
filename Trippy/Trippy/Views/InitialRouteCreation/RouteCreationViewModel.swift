@@ -7,16 +7,7 @@
 
 import Foundation
 import Utils
-
-struct WaypointData {
-    let name: String
-}
-
-extension WaypointData {
-    static var mock: WaypointData {
-        .init(name: "Taganrog, Grecheskaya street, 104A")
-    }
-}
+import Domain
 
 final class RouteCreationViewModel: ViewModel {
     struct Flow {
@@ -25,20 +16,19 @@ final class RouteCreationViewModel: ViewModel {
     
     private let flow: Flow
     
-    @Published var intermediateWaypoints: [WaypointData] = [.mock,
-                                                            .mock]
+    @Published var intermediateWaypoints: [WaypointData] = []
+    @Published var startWaypoint: WaypointData = WaypointData(name: "Taganrog, Grecheskaya 104A",
+                                                              date: Date())
+    @Published var endWaypoint: WaypointData = .init(name: "",
+                                                     date: Date())
     
     init(flow: Flow) {
         self.flow = flow
     }
     
-    func addWaypoint() {
-        intermediateWaypoints.append(.mock)
-        flow.addWaypoint?()
-    }
-    
     func insertWaypoint(at position: Int) {
-        intermediateWaypoints.insert(.mock,
+        intermediateWaypoints.insert(WaypointData(name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
+                                                  date: Date()),
                                      at: position)
     }
 }

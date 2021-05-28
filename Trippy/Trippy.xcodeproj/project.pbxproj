@@ -25,6 +25,7 @@
 		0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */; };
 		0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */; };
 		0BA558162658ED2A00EAE191 /* TrippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA558152658ED2A00EAE191 /* TrippyUITests.swift */; };
+		0BBFF7A82660121C004B9C33 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBFF7A72660121C004B9C33 /* Domain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,10 @@
 		0BA558172658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA55826265A2E4600EAE191 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Coordinator; sourceTree = "<group>"; };
 		0BA55827265A342B00EAE191 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
+		0BBFF7A626600FA6004B9C33 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
+		0BBFF7AB2660BE3D004B9C33 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
+		0BBFF7AC2660C052004B9C33 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Repository; sourceTree = "<group>"; };
+		0BBFF7AD2660C748004B9C33 /* LinkedList */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LinkedList; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBFF7A82660121C004B9C33 /* Domain in Frameworks */,
 				0B529174265D752900BE7307 /* Stevia in Frameworks */,
 				0B0EFE7B265CC9E400C2EFC2 /* TrippyUI in Frameworks */,
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
@@ -131,6 +137,10 @@
 		0B0EFE7D265CD1CA00C2EFC2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				0BBFF7AD2660C748004B9C33 /* LinkedList */,
+				0BBFF7AC2660C052004B9C33 /* Repository */,
+				0BBFF7AB2660BE3D004B9C33 /* Controller */,
+				0BBFF7A626600FA6004B9C33 /* Domain */,
 				0B7DC3AE265F5EA600C743B2 /* Utils */,
 				0B7DC3A9265EC22100C743B2 /* UIUtils */,
 				0BA55826265A2E4600EAE191 /* Coordinator */,
@@ -241,6 +251,7 @@
 				0B529173265D752900BE7307 /* Stevia */,
 				0B7DC3AA265EC2C300C743B2 /* UIUtils */,
 				0B7DC3AF265F5F2E00C743B2 /* Utils */,
+				0BBFF7A72660121C004B9C33 /* Domain */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -724,6 +735,10 @@
 		0B7DC3AF265F5F2E00C743B2 /* Utils */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Utils;
+		};
+		0BBFF7A72660121C004B9C33 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
