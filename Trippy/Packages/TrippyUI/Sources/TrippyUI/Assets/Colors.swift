@@ -6,7 +6,9 @@
 //
 
 public extension Asset {
+    
     enum Color {
+        
         public static var primaryBackground = ColorAsset(name: "VioletBlue")
         public static let accent = ColorAsset(name: "SunYellow")
         public static let separator = ColorAsset(name: "White")

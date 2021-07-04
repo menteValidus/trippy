@@ -79,7 +79,7 @@ private extension AddWaypointCollectionViewCell {
         let button = RoundedButton()
         button.backgroundColor = Asset.Color.Button.background.uiColor
         button.setTitleColor(Asset.Color.Button.text.uiColor, for: .normal)
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setImage(Asset.Image.plus.uiImage, for: .normal)
         
         return button
     }

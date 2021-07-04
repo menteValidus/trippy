@@ -11,6 +11,7 @@ import UIKit
 public enum Asset {}
 
 public class ImageAsset {
+    
     public let name: String
 
     internal init(name: String) {
@@ -31,6 +32,7 @@ public class ImageAsset {
 }
 
 public class ColorAsset {
+    
     public let name: String
 
     internal init(name: String) {
