@@ -9,6 +9,7 @@ import Domain
 
 public extension WaypointData {
     static var mock: WaypointData {
-        .init(name: "Taganrog, Grecheskaya street, 104A")
+        .init(name: "Taganrog, Grecheskaya street, 104A",
+              date: Date())
     }
 }

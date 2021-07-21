@@ -10,7 +10,6 @@
 		0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */; };
 		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
-		0B0EFE7B265CC9E400C2EFC2 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE7A265CC9E400C2EFC2 /* TrippyUI */; };
 		0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */; };
 		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
 		0B7DC3A6265EB16700C743B2 /* RouteCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */; };
@@ -18,6 +17,7 @@
 		0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AA265EC2C300C743B2 /* UIUtils */; };
 		0B7DC3AD265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */; };
 		0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AF265F5F2E00C743B2 /* Utils */; };
+		0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8E48E426A7E98000AFEB19 /* TrippyUI */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
 		0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */; };
@@ -83,7 +83,7 @@
 			files = (
 				0BBFF7A82660121C004B9C33 /* Domain in Frameworks */,
 				0B529174265D752900BE7307 /* Stevia in Frameworks */,
-				0B0EFE7B265CC9E400C2EFC2 /* TrippyUI in Frameworks */,
+				0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */,
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
 				0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */,
 				0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */,
@@ -247,11 +247,11 @@
 			name = Trippy;
 			packageProductDependencies = (
 				0B0EFE74265CBEDA00C2EFC2 /* Coordinator */,
-				0B0EFE7A265CC9E400C2EFC2 /* TrippyUI */,
 				0B529173265D752900BE7307 /* Stevia */,
 				0B7DC3AA265EC2C300C743B2 /* UIUtils */,
 				0B7DC3AF265F5F2E00C743B2 /* Utils */,
 				0BBFF7A72660121C004B9C33 /* Domain */,
+				0B8E48E426A7E98000AFEB19 /* TrippyUI */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -719,10 +719,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Coordinator;
 		};
-		0B0EFE7A265CC9E400C2EFC2 /* TrippyUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TrippyUI;
-		};
 		0B529173265D752900BE7307 /* Stevia */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B529172265D752900BE7307 /* XCRemoteSwiftPackageReference "Stevia" */;
@@ -735,6 +731,10 @@
 		0B7DC3AF265F5F2E00C743B2 /* Utils */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Utils;
+		};
+		0B8E48E426A7E98000AFEB19 /* TrippyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TrippyUI;
 		};
 		0BBFF7A72660121C004B9C33 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
