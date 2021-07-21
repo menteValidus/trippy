@@ -1,11 +1,12 @@
-    import XCTest
     @testable import Repository
+    import XCTest
+    import Domain
 
     final class RepositoryTests: XCTestCase {
-        func testExample() {
-            // This is an example of a functional test case.
-            // Use XCTAssert and related functions to verify your tests produce the correct
-            // results.
-            XCTAssertEqual(Repository().text, "Hello, World!")
+        
+        var sut = InMemoryRouteRepository()
+        
+        func testInsert() {
+            sut.insert(WaypointData.mock)
         }
     }
