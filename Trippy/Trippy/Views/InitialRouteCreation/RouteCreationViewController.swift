@@ -41,6 +41,7 @@ class RouteCreationViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel.$intermediateWaypoints
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.collectionView.reloadSections([Section.intermediate.rawValue])
             }
