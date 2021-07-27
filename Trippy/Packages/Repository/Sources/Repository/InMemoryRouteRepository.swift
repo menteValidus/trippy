@@ -10,11 +10,13 @@ import Domain
 
 public final class InMemoryRouteRepository: RouteRepository {
     
+    var waypointDataList: [WaypointData] = []
+    
     public func getAll() -> [WaypointData] {
-        []
+        waypointDataList
     }
     
     public func insert(_ waypointData: WaypointData) {
-        
+        waypointDataList.append(waypointData)
     }
 }

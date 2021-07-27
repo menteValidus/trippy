@@ -10,6 +10,7 @@ import Utils
 import Domain
 
 final class RouteCreationViewModel: ViewModel {
+    
     struct Flow {
         var addWaypoint: Callback?
     }
@@ -17,9 +18,11 @@ final class RouteCreationViewModel: ViewModel {
     private let flow: Flow
     
     @Published var intermediateWaypoints: [WaypointData] = []
-    @Published var startWaypoint: WaypointData = WaypointData(name: "Taganrog, Grecheskaya 104A",
+    @Published var startWaypoint: WaypointData = WaypointData(id: "",
+                                                              name: "Taganrog, Grecheskaya 104A",
                                                               date: Date())
-    @Published var endWaypoint: WaypointData = .init(name: "",
+    @Published var endWaypoint: WaypointData = .init(id: "",
+                                                     name: "",
                                                      date: Date())
     
     init(flow: Flow) {
@@ -27,7 +30,8 @@ final class RouteCreationViewModel: ViewModel {
     }
     
     func insertWaypoint(at position: Int) {
-        intermediateWaypoints.insert(WaypointData(name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
+        intermediateWaypoints.insert(WaypointData(id: "",
+                                                  name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
                                                   date: Date()),
                                      at: position)
     }
