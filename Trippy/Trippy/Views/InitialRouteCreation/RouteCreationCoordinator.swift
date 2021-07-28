@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import Coordinator
 
 protocol RouteCreationCoordinatorDelegate: CoordinatorDelegate { }
@@ -21,11 +22,13 @@ final class RouteCreationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        let vc = RouteCreationViewController()
+//        let vc = RouteCreationViewController()
+        let vm = RouteCreationViewModel(flow: .init())
+        let vc = UIHostingController(rootView: RouteCreation(viewModel: vm))
         vc.overrideUserInterfaceStyle = .dark
         
-        let vm = RouteCreationViewModel(flow: .init())
-        vc.viewModel = vm
+//        let vm = RouteCreationViewModel(flow: .init())
+//        vc.viewModel = vm
         
         present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         presentedViewController = vc

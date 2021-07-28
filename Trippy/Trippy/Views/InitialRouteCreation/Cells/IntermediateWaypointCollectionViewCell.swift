@@ -6,11 +6,55 @@
 //
 
 import UIKit
+import SwiftUI
 import UIUtils
 import TrippyUI
 import Stevia
 
+// MARK: - UIKit
 final class IntermediateWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
+    
+    private lazy var intermediateWaypointView: IntermediateWaypointView = .init()
+    // MARK: - Initialization
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        subviews(
+            intermediateWaypointView
+        )
+        
+        intermediateWaypointView.fillContainer()
+    }
+}
+
+// MARK: - SwiftUI
+
+struct IntermediateWaypoint: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> some UIView {
+        IntermediateWaypointView()
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        
+    }
+}
+
+final class IntermediateWaypointView: UIView {
     
     // MARK: - Constants
     
@@ -51,7 +95,7 @@ final class IntermediateWaypointCollectionViewCell: UICollectionViewCell, ReuseI
 
 // MARK: - Configuration
 
-private extension IntermediateWaypointCollectionViewCell {
+private extension IntermediateWaypointView {
     
     func configureWaypointView() {
         waypointView.Leading == Leading
@@ -69,7 +113,7 @@ private extension IntermediateWaypointCollectionViewCell {
 
 // MARK: - Views Creation
 
-private extension IntermediateWaypointCollectionViewCell {
+private extension IntermediateWaypointView {
     
     func createWaypointView() -> CircleView {
         let waypointView = CircleView()
@@ -92,20 +136,12 @@ private extension IntermediateWaypointCollectionViewCell {
 
 import SwiftUI
 
-struct IntermediateWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepresentable {
+struct IntermediateWaypointCollectionViewCell_Previews: PreviewProvider {
     
     static var previews: some View {
-        Self()
+        IntermediateWaypoint()
             .background(Asset.Color.primaryBackground.color)
             .previewLayout(.fixed(width: 314, height: 80))
-    }
-    
-    func makeUIView(context: Context) -> some UIView {
-        IntermediateWaypointCollectionViewCell()
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
     }
 }
 

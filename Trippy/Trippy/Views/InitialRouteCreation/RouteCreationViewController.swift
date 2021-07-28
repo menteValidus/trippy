@@ -9,6 +9,8 @@ import UIKit
 import TrippyUI
 import Combine
 
+// TODO: Remove this implementation when SwiftUI version is finished
+
 class RouteCreationViewController: UIViewController {
     
     // MARK: - Constants

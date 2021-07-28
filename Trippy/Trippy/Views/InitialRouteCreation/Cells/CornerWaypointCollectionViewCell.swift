@@ -10,7 +10,48 @@ import TrippyUI
 import Stevia
 import UIUtils
 
+// MARK: - UIKit
+
 final class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
+    
+    private var cornerWaypointView: CornerWaypointView = .init()
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        subviews(cornerWaypointView)
+        
+        cornerWaypointView.fillContainer()
+    }
+}
+
+// MARK: - SwiftUI
+
+struct CornerWaypoint: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> some UIView {
+        CornerWaypointView()
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) { }
+}
+
+// MARK: - Corner Waypoint View
+
+final class CornerWaypointView: UIView {
     
     // MARK: - Constants
     
@@ -66,7 +107,7 @@ final class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentif
 
 // MARK: - Configuration
 
-private extension CornerWaypointCollectionViewCell {
+private extension CornerWaypointView {
     
     func configureWaypointTypeLabel() {
         waypointTypeLabel.Leading == Leading
@@ -100,7 +141,7 @@ private extension CornerWaypointCollectionViewCell {
 
 // MARK: - Views Creation
 
-private extension CornerWaypointCollectionViewCell {
+private extension CornerWaypointView {
     
     func createWaypointTypeLabel() -> UILabel {
         let label = UILabel()
@@ -150,20 +191,12 @@ private extension CornerWaypointCollectionViewCell {
 
 import SwiftUI
 
-struct CornerWaypointCollectionViewCell_Previews: PreviewProvider, UIViewRepresentable {
+struct CornerWaypointCollectionViewCell_Previews: PreviewProvider {
     
     static var previews: some View {
-        Self()
+        CornerWaypoint()
             .background(Asset.Color.primaryBackground.color)
             .previewLayout(.fixed(width: 314, height: 220))
-    }
-    
-    func makeUIView(context: Context) -> some UIView {
-        CornerWaypointCollectionViewCell()
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
     }
 }
 
