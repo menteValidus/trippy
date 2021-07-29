@@ -13,6 +13,8 @@ struct RouteCreation: View {
     // MARK: - Constants
     
     private let cornerEndpointHeight: CGFloat = 210
+    private let itemsSpacing: CGFloat = 30
+    private let overallContentHorizontalSpacing: CGFloat = 30
     
     // MARK: -
     
@@ -25,7 +27,7 @@ struct RouteCreation: View {
     
     var body: some View {
         ScrollView(.vertical) {
-            LazyVStack {
+            LazyVStack(spacing: itemsSpacing) {
                 CornerWaypoint()
                     .frame(height: cornerEndpointHeight)
                 
@@ -36,7 +38,7 @@ struct RouteCreation: View {
                 CornerWaypoint()
                     .frame(height: cornerEndpointHeight)
             }
-            
+            .padding(.horizontal, overallContentHorizontalSpacing)
         }
         .background(Asset.Color.primaryBackground.color
                         .ignoresSafeArea()
