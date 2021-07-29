@@ -12,19 +12,17 @@
 		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
 		0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B11F81E26B0775B00D80742 /* RouteCreation.swift */; };
-		0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */; };
+		0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypoint.swift */; };
 		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
 		0B7DC3A6265EB16700C743B2 /* RouteCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */; };
-		0B7DC3A8265EC1E800C743B2 /* AddWaypointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */; };
 		0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AA265EC2C300C743B2 /* UIUtils */; };
-		0B7DC3AD265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */; };
+		0B7DC3AD265F472A00C743B2 /* IntermediateWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypoint.swift */; };
 		0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AF265F5F2E00C743B2 /* Utils */; };
 		0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8E48E426A7E98000AFEB19 /* TrippyUI */; };
 		0B920B4A26B334D500830932 /* GoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B920B4926B334D500830932 /* GoButton.swift */; };
 		0B920B4C26B3396E00830932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B920B4B26B3396E00830932 /* Localizable.strings */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
-		0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */; };
 		0BA557FD2658ED2A00EAE191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FC2658ED2A00EAE191 /* Assets.xcassets */; };
 		0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */; };
 		0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */; };
@@ -55,18 +53,16 @@
 		0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationCoordinator.swift; sourceTree = "<group>"; };
 		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TrippyUI; sourceTree = "<group>"; };
 		0B11F81E26B0775B00D80742 /* RouteCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreation.swift; sourceTree = "<group>"; };
-		0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypointCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B52916D265D691900BE7307 /* CornerWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypoint.swift; sourceTree = "<group>"; };
 		0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationViewModel.swift; sourceTree = "<group>"; };
-		0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaypointCell.swift; sourceTree = "<group>"; };
 		0B7DC3A9265EC22100C743B2 /* UIUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIUtils; sourceTree = "<group>"; };
-		0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateWaypointCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B7DC3AC265F472A00C743B2 /* IntermediateWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateWaypoint.swift; sourceTree = "<group>"; };
 		0B7DC3AE265F5EA600C743B2 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
 		0B920B4926B334D500830932 /* GoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoButton.swift; sourceTree = "<group>"; };
 		0B920B4B26B3396E00830932 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA557F52658ED2900EAE191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationViewController.swift; sourceTree = "<group>"; };
 		0BA557FC2658ED2A00EAE191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA557FF2658ED2A00EAE191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BA558012658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +114,8 @@
 		0B095CC826B1CE7400611B7F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B52916D265D691900BE7307 /* CornerWaypoint.swift */,
+				0B7DC3AC265F472A00C743B2 /* IntermediateWaypoint.swift */,
 				0B095CC926B1CE9100611B7F /* AddWaypoint.swift */,
 				0B920B4926B334D500830932 /* GoButton.swift */,
 			);
@@ -165,16 +163,6 @@
 				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
 			);
 			path = Packages;
-			sourceTree = "<group>";
-		};
-		0B52916C265D68F000BE7307 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				0B52916D265D691900BE7307 /* CornerWaypointCollectionViewCell.swift */,
-				0B7DC3A7265EC1E800C743B2 /* AddWaypointCell.swift */,
-				0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		0BA557E72658ED2900EAE191 = {
@@ -240,8 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				0B095CC826B1CE7400611B7F /* Views */,
-				0B52916C265D68F000BE7307 /* Cells */,
-				0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */,
 				0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */,
 				0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */,
 				0B11F81E26B0775B00D80742 /* RouteCreation.swift */,
@@ -394,11 +380,9 @@
 				0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */,
 				0B095CCA26B1CE9100611B7F /* AddWaypoint.swift in Sources */,
 				0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */,
-				0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */,
-				0B7DC3A8265EC1E800C743B2 /* AddWaypointCell.swift in Sources */,
-				0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */,
+				0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */,
 				0B920B4A26B334D500830932 /* GoButton.swift in Sources */,
-				0B7DC3AD265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift in Sources */,
+				0B7DC3AD265F472A00C743B2 /* IntermediateWaypoint.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
 				0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */,
 				0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */,

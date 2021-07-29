@@ -11,38 +11,6 @@ import UIUtils
 import TrippyUI
 import Stevia
 
-// MARK: - UIKit
-final class IntermediateWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
-    
-    private lazy var intermediateWaypointView: IntermediateWaypointView = .init()
-    // MARK: - Initialization
-    
-    init() {
-        super.init(frame: .zero)
-        commonInit()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        subviews(
-            intermediateWaypointView
-        )
-        
-        intermediateWaypointView.fillContainer()
-    }
-}
-
-// MARK: - SwiftUI
-
 struct IntermediateWaypoint: UIViewRepresentable {
     
     func makeUIView(context: Context) -> some UIView {

@@ -10,34 +10,6 @@ import TrippyUI
 import Stevia
 import UIUtils
 
-// MARK: - UIKit
-
-final class CornerWaypointCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
-    
-    private var cornerWaypointView: CornerWaypointView = .init()
-    
-    init() {
-        super.init(frame: .zero)
-        commonInit()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        subviews(cornerWaypointView)
-        
-        cornerWaypointView.fillContainer()
-    }
-}
-
 // MARK: - SwiftUI
 
 struct CornerWaypoint: UIViewRepresentable {
