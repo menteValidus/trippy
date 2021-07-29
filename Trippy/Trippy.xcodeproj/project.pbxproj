@@ -20,6 +20,8 @@
 		0B7DC3AD265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */; };
 		0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AF265F5F2E00C743B2 /* Utils */; };
 		0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8E48E426A7E98000AFEB19 /* TrippyUI */; };
+		0B920B4A26B334D500830932 /* GoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B920B4926B334D500830932 /* GoButton.swift */; };
+		0B920B4C26B3396E00830932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B920B4B26B3396E00830932 /* Localizable.strings */; };
 		0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F32658ED2900EAE191 /* AppDelegate.swift */; };
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
 		0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F72658ED2900EAE191 /* RouteCreationViewController.swift */; };
@@ -59,6 +61,8 @@
 		0B7DC3A9265EC22100C743B2 /* UIUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIUtils; sourceTree = "<group>"; };
 		0B7DC3AC265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateWaypointCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B7DC3AE265F5EA600C743B2 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
+		0B920B4926B334D500830932 /* GoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoButton.swift; sourceTree = "<group>"; };
+		0B920B4B26B3396E00830932 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0BA557F02658ED2900EAE191 /* Trippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA557F32658ED2900EAE191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA557F52658ED2900EAE191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0B095CC926B1CE9100611B7F /* AddWaypoint.swift */,
+				0B920B4926B334D500830932 /* GoButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				0BA558012658ED2A00EAE191 /* Info.plist */,
 				0BA557FC2658ED2A00EAE191 /* Assets.xcassets */,
 				0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */,
+				0B920B4B26B3396E00830932 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */,
+				0B920B4C26B3396E00830932 /* Localizable.strings in Resources */,
 				0BA557FD2658ED2A00EAE191 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +397,7 @@
 				0B52916E265D691900BE7307 /* CornerWaypointCollectionViewCell.swift in Sources */,
 				0B7DC3A8265EC1E800C743B2 /* AddWaypointCell.swift in Sources */,
 				0BA557F82658ED2900EAE191 /* RouteCreationViewController.swift in Sources */,
+				0B920B4A26B334D500830932 /* GoButton.swift in Sources */,
 				0B7DC3AD265F472A00C743B2 /* IntermediateWaypointCollectionViewCell.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
 				0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */,

@@ -7,10 +7,9 @@
 
 import SwiftUI
 import TrippyUI
+import UIUtils
 
 struct AddWaypoint: View {
-    
-    typealias ButtonAction = () -> Void
     
     // MARK: - Constants
     

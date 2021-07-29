@@ -10,5 +10,6 @@ public extension Asset {
     enum Image {
         
         public static var plus = ImageAsset(name: "Plus")
+        public static var forwardArrow = ImageAsset(name: "ForwardArrow")
     }
 }
