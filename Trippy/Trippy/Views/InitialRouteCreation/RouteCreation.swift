@@ -37,6 +37,8 @@ struct RouteCreation: View {
                 
                 CornerWaypoint()
                     .frame(height: cornerEndpointHeight)
+                
+                GoButton(action: goButtonTapped)
             }
             .padding(.horizontal, overallContentHorizontalSpacing)
         }
@@ -81,6 +83,10 @@ private extension RouteCreation {
     
     func addWaypointButtonTapped(at position: Int) {
         viewModel.insertWaypoint(at: position)
+    }
+    
+    func goButtonTapped() {
+        viewModel.proceed()
     }
 }
 

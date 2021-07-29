@@ -13,6 +13,7 @@ final class RouteCreationViewModel: ViewModel {
     
     struct Flow {
         var addWaypoint: Callback?
+        var proceed: Callback?
     }
     
     private let flow: Flow
@@ -34,5 +35,9 @@ final class RouteCreationViewModel: ViewModel {
                                                   name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
                                                   date: Date()),
                                      at: position)
+    }
+    
+    func proceed() {
+        flow.proceed?()
     }
 }
