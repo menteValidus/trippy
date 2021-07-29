@@ -42,6 +42,7 @@ struct RouteCreation: View {
                         .ignoresSafeArea()
                         .frame(maxWidth: .infinity,
                                maxHeight: .infinity))
+        .navigationBarHidden(true)
     }
 }
 
