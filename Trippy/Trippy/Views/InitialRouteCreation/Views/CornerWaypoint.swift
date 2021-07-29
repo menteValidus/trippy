@@ -14,11 +14,28 @@ import UIUtils
 
 struct CornerWaypoint: UIViewRepresentable {
     
+    let type: CornerWaypointType
+    
     func makeUIView(context: Context) -> some UIView {
-        CornerWaypointView()
+        CornerWaypointView(type: type)
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) { }
+}
+
+enum CornerWaypointType {
+    
+    case start
+    case finish
+    
+    var title: String {
+        switch self {
+        case .start:
+            return NSLocalizedString("_start_title", comment: "")
+        case .finish:
+            return NSLocalizedString("_finish_title", comment: "")
+        }
+    }
 }
 
 // MARK: - Corner Waypoint View
@@ -39,19 +56,29 @@ final class CornerWaypointView: UIView {
     
     private lazy var dateLabel: StyledLabel = createDateLabel()
     
+    // MARK: -
+    
+    private let type: CornerWaypointType
+    
     // MARK: - Initialization
     
-    init() {
+    init(type: CornerWaypointType) {
+        self.type = type
+        
         super.init(frame: .zero)
         commonInit()
     }
     
     override init(frame: CGRect) {
+        self.type = .start
+        
         super.init(frame: frame)
         commonInit()
     }
     
     required init?(coder: NSCoder) {
+        self.type = .start
+        
         super.init(coder: coder)
         commonInit()
     }
@@ -119,7 +146,7 @@ private extension CornerWaypointView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 35, weight: .bold)
         label.textColor = Asset.Color.Text.accent.uiColor
-        label.text = "Start"
+        label.text = type.title
         
         return label
     }
@@ -166,9 +193,13 @@ import SwiftUI
 struct CornerWaypointCollectionViewCell_Previews: PreviewProvider {
     
     static var previews: some View {
-        CornerWaypoint()
-            .background(Asset.Color.primaryBackground.color)
-            .previewLayout(.fixed(width: 314, height: 220))
+        Group {
+            CornerWaypoint(type: .start)
+            
+            CornerWaypoint(type: .finish)
+        }
+        .background(Asset.Color.primaryBackground.color)
+        .previewLayout(.fixed(width: 314, height: 220))
     }
 }
 

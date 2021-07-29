@@ -28,14 +28,14 @@ struct RouteCreation: View {
     var body: some View {
         ScrollView(.vertical) {
             LazyVStack(spacing: itemsSpacing) {
-                CornerWaypoint()
+                CornerWaypoint(type: .start)
                     .frame(height: cornerEndpointHeight)
                 
                 ForEach(0..<amountOfIntermediatePoints, id: \.self) { index in
                     intermediateView(at: index)
                 }
                 
-                CornerWaypoint()
+                CornerWaypoint(type: .finish)
                     .frame(height: cornerEndpointHeight)
                 
                 GoButton(action: goButtonTapped)
