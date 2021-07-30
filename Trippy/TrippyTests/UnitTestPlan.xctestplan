@@ -1,0 +1,49 @@
+{
+  "configurations" : [
+    {
+      "id" : "D56DB643-29F4-4B72-BA98-299150AB3C48",
+      "name" : "Configuration 1",
+      "options" : {
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:Trippy.xcodeproj",
+          "identifier" : "0BA557EF2658ED2900EAE191",
+          "name" : "Trippy"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Coordinator",
+        "identifier" : "CoordinatorTests",
+        "name" : "CoordinatorTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Trippy.xcodeproj",
+        "identifier" : "0BA558052658ED2A00EAE191",
+        "name" : "TrippyTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Controller",
+        "identifier" : "ControllerTests",
+        "name" : "ControllerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Repository",
+        "identifier" : "RepositoryTests",
+        "name" : "RepositoryTests"
+      }
+    }
+  ],
+  "version" : 1
+}

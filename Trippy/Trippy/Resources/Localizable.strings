@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Trippy
+
+  Created by Denis Cherniy on 29.07.2021.
+  
+*/
+
+"_go_button_title" = "Go";
+"_start_title" = "Start";
+"_finish_title" = "Finish";
