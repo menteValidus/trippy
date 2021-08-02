@@ -10,10 +10,11 @@ import XCTest
 
 final class DisplaymentInfoConversionTests: XCTestCase {
     
-    var pointsData: [TimelinePointData] = []
+    private let secsInHour: TimeInterval = 3600
     
+    var pointsData: [TimelinePointData] = []
     var testDate: Date {
-        Calendar.current.date(from: DateComponents(year: 2021, month: 8, day: 1, hour: 6))!
+        Calendar.current.date(from: DateComponents(year: 2021, month: 8, day: 1, hour: 0))!
     }
     
     override func setUp() {
@@ -21,25 +22,52 @@ final class DisplaymentInfoConversionTests: XCTestCase {
     }
     
     func testEmptyPointsDataConvertedToDisplaymentInfo() {
-        XCTAssertEqual([TimelinePieceType](), pointsData.convertedToDisplaymentInfo())
+        XCTAssertEqual([TimelinePieceType](), pointsData.convertedToDisplaymentInfo(usingCalendar: .current))
     }
     
-    func testOneStayingConvertedToDisplaymentInfo() {
+    func testOneStayingConvertedToDisplaymentInfoAtStartOfDay() {
         let startDate = testDate
         let endDate = Date.date(addingDays: 0,
                                 addingHours: 6,
                                 from: testDate)
 
         let expectedResult: [TimelinePieceType] = [
-            .waypoint(data: .init(date: startDate, title: "")),
-            .staying(duration: 6 * 3600),
-            .waypoint(data: .init(date: endDate))]
+            .waypoint(data: .init(date: startDate,
+                                  title: "")),
+            .staying(duration: 6 * secsInHour),
+            .waypoint(data: .init(date: endDate)),
+            .emptySpace(duration: 18 * secsInHour)
+        ]
         
         pointsData.append(.init(dateInterval: .init(start: startDate,
                                                     end: endDate),
                                 title: ""))
         
-        XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo())
+        XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo(usingCalendar: .current))
+    }
+    
+    func testOneStayingConvertedToDisplaymentInfo() {
+        let startDate = Date.date(addingDays: 0,
+                                  addingHours: 2,
+                                  from: testDate)
+        let endDate = Date.date(addingDays: 0,
+                                addingHours: 6,
+                                from: testDate)
+
+        let expectedResult: [TimelinePieceType] = [
+            .emptySpace(duration: 2 * secsInHour),
+            .waypoint(data: .init(date: startDate,
+                                  title: "")),
+            .staying(duration: 4 * secsInHour),
+            .waypoint(data: .init(date: endDate)),
+            .emptySpace(duration: 18 * secsInHour)
+        ]
+        
+        pointsData.append(.init(dateInterval: .init(start: startDate,
+                                                    end: endDate),
+                                title: ""))
+        
+        XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo(usingCalendar: .current))
     }
     
     func testTwoStayingsConvertedToDisplaymentInfo() {
@@ -69,16 +97,18 @@ final class DisplaymentInfoConversionTests: XCTestCase {
         let expectedResult: [TimelinePieceType] = [
             .waypoint(data: .init(date: startDate1,
                                   title: title1)),
-            .staying(duration: 6 * 3600),
+            .staying(duration: 6 * secsInHour),
             .waypoint(data: .init(date: endDate1)),
-            .inTransit(duration: 18 * 3600),
+            .inTransit(duration: 18 * secsInHour),
             .waypoint(data: .init(date: startDate2,
                                   title: title2)),
-            .staying(duration: 7 * 3600),
-            .waypoint(data: .init(date: endDate2))]
+            .staying(duration: 7 * secsInHour),
+            .waypoint(data: .init(date: endDate2)),
+            .emptySpace(duration: 17 * secsInHour)
+        ]
         
         
-        XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo())
+        XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo(usingCalendar: .current))
     }
 }
 

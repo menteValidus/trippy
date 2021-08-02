@@ -87,8 +87,11 @@ private extension TimelineView {
         let overallDuration = pointsData.computeCompletedDaysDurationInSecs(withCalendar: calendar)
         var lastItemBottomAnchor: SteviaAttribute?
         
-        for displaymentInfo in pointsData.convertedToDisplaymentInfo() {
+        for displaymentInfo in pointsData.convertedToDisplaymentInfo(usingCalendar: calendar) {
             switch displaymentInfo {
+            case .emptySpace(let duration):
+                break
+                
             case .waypoint(let data):
                 let waypointView = createWaypointView(withData: data)
                 

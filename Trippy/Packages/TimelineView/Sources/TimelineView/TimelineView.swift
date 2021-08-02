@@ -18,6 +18,7 @@ private extension Int {
 
 public enum TimelinePieceType {
     
+    case emptySpace(duration: TimeInterval)
     case inTransit(duration: TimeInterval)
     case staying(duration: TimeInterval)
     case waypoint(data: WaypointData)
@@ -27,6 +28,9 @@ extension TimelinePieceType: Equatable {
     
     public static func == (lhs: TimelinePieceType, rhs: TimelinePieceType) -> Bool {
         switch (lhs, rhs) {
+        case let (.emptySpace(lhs), .emptySpace(rhs)):
+            return lhs == rhs
+            
         case let (.inTransit(lhs), .inTransit(rhs)):
             return lhs == rhs
             
@@ -58,16 +62,16 @@ extension WaypointData: Equatable { }
 
 public extension Array where Element == TimelinePointData {
     
-    func computeCompletedDaysDurationInSecs(withCalendar calendar: Calendar) -> Int {
+    func computeCompletedDaysDurationInSecs(withCalendar calendar: Calendar) -> Int? {
         guard let startDate = self.first?.dateInterval.start,
               let endDate = self.last?.dateInterval.end,
               let finalDate = Date.nextDay(for: endDate,
                                            withCalendar: calendar) else { return 0 }
         
-        return calendar.numberOfDaysBetween(startDate, and: finalDate).daysToSeconds
+        return calendar.numberOfDaysBetween(startDate, and: finalDate)?.daysToSeconds
     }
     
-    func convertedToDisplaymentInfo() -> [TimelinePieceType] {
+    func convertedToDisplaymentInfo(usingCalendar calendar: Calendar) -> [TimelinePieceType] {
         guard !isEmpty else { return [] }
         
         var timelinePieceTypeArray: [TimelinePieceType] = []
@@ -97,20 +101,55 @@ public extension Array where Element == TimelinePointData {
             timelinePieceTypeArray.append(.inTransit(duration: inTransitInterval.duration))
         }
         
+        if let startDate = first?.dateInterval.start,
+           let secondsSinceStartOfDay = calendar.numberOfSecondsSinceStartOfDay(forDate: startDate),
+           secondsSinceStartOfDay > 0 {
+            timelinePieceTypeArray.insert(.emptySpace(duration: TimeInterval(secondsSinceStartOfDay)),
+                                          at: 0)
+        }
+        
+        if let endDate = last?.dateInterval.end,
+           let secondsTillEndOfDay = calendar.numberOfSecondsTilEndOfDay(forDate: endDate),
+           secondsTillEndOfDay > 0 {
+            timelinePieceTypeArray.append(.emptySpace(duration: TimeInterval(secondsTillEndOfDay)))
+        }
+        
         return timelinePieceTypeArray
     }
 }
 
 private extension Calendar {
     
-    func numberOfDaysBetween(_ from: Date,
-                             and to: Date) -> Int {
-        let fromDate = startOfDay(for: from)
+    func numberOfDaysBetween(_ startDate: Date,
+                             and endDate: Date) -> Int? {
+        let fromDate = startOfDay(for: startDate)
         
-        let toDate = startOfDay(for: to)
+        let toDate = startOfDay(for: endDate)
         let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
         
-        return numberOfDays.day!
+        return numberOfDays.day
+    }
+    
+    func numberOfSecondsBetween(_ startDate: Date,
+                                and endDate: Date) -> Int? {
+        let numberOfDays = dateComponents([.second], from: startDate, to: endDate)
+        
+        return numberOfDays.second
+    }
+    
+    func numberOfSecondsSinceStartOfDay(forDate date: Date) -> Int? {
+        let startOfDay = startOfDay(for: date)
+        
+        return numberOfSecondsBetween(startOfDay, and: date)
+    }
+    
+    func numberOfSecondsTilEndOfDay(forDate date: Date) -> Int? {
+        guard let nextDay = Date.nextDay(for: date,
+                                         withCalendar: self) else { return nil }
+        
+        let endOfCurrentDay = startOfDay(for: nextDay)
+        
+        return numberOfSecondsBetween(date, and: endOfCurrentDay)
     }
 }
 
