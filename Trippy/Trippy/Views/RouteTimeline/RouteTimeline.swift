@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 import Stevia
 import TimelineView
+import TrippyUI
 
 struct RouteTimeline: View {
     
@@ -39,6 +40,7 @@ protocol TimelineViewDataSource: AnyObject {
 
 final class TimelineView: UIView {
     
+    private let connectionViewsWidth: CGFloat = 2
     
     weak var dataSource: TimelineViewDataSource?
 //    weak var delegate: TimelineViewDelegate?
@@ -116,7 +118,8 @@ private extension TimelineView {
                 let stayingView = createStayingView()
                 subviews(stayingView)
                 
-                stayingView.Width == view.Width
+                stayingView.Width == connectionViewsWidth
+                stayingView.Trailing == view.Trailing - 141
                 
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
                     stayingView.Top == lastItemBottomAnchor
@@ -133,7 +136,8 @@ private extension TimelineView {
                 let inTransitView = createInTransitView()
                 subviews(inTransitView)
                 
-                inTransitView.Width == view.Width
+                inTransitView.Width == connectionViewsWidth
+                inTransitView.Trailing == view.Trailing - 141
                 
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
                     inTransitView.Top == lastItemBottomAnchor
@@ -161,21 +165,20 @@ private extension TimelineView {
         let view = UIView()
         view.backgroundColor = .red
         view.Height == 16
-        view.Width == view.Height
         
         return view
     }
     
     func createStayingView() -> UIView {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = Asset.Color.ConnectionLine.background.uiColor
         
         return view
     }
     
-    func createInTransitView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = .green
+    func createInTransitView() -> DashedLine {
+        let view = DashedLine()
+        view.color = Asset.Color.ConnectionLine.background.uiColor
         
         return view
     }
