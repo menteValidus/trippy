@@ -12,6 +12,7 @@
 		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
 		0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B11F81E26B0775B00D80742 /* RouteCreation.swift */; };
+		0B4F850526B9A69B009100F3 /* RouteTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */; };
 		0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypoint.swift */; };
 		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
 		0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */; };
@@ -56,6 +57,7 @@
 		0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationCoordinator.swift; sourceTree = "<group>"; };
 		0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TrippyUI; sourceTree = "<group>"; };
 		0B11F81E26B0775B00D80742 /* RouteCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreation.swift; sourceTree = "<group>"; };
+		0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineViewModel.swift; sourceTree = "<group>"; };
 		0B52916D265D691900BE7307 /* CornerWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypoint.swift; sourceTree = "<group>"; };
 		0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineCoordinator.swift; sourceTree = "<group>"; };
 		0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimeline.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */,
 				0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */,
+				0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */,
 			);
 			path = RouteTimeline;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */,
 				0B095CCA26B1CE9100611B7F /* AddWaypoint.swift in Sources */,
 				0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */,
+				0B4F850526B9A69B009100F3 /* RouteTimelineViewModel.swift in Sources */,
 				0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */,
 				0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */,
 				0B920B4A26B334D500830932 /* GoButton.swift in Sources */,

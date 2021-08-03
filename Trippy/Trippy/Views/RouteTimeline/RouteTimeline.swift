@@ -11,10 +11,17 @@ import Stevia
 import TimelineView
 
 struct RouteTimeline: View {
+    
+    private let defaultDayHeight: CGFloat = 240
+    
+    @ObservedObject var viewModel: RouteTimelineViewModel
+    
     var body: some View {
         ScrollView(.vertical,
                    showsIndicators: false) {
-            Timeline()
+            Timeline(pointsData: $viewModel.pointsData)
+                .frame(maxWidth: .infinity)
+                .frame(height: defaultDayHeight * CGFloat(viewModel.pointsData.count))
         }
     }
 }
@@ -25,44 +32,18 @@ protocol TimelineViewDataSource: AnyObject {
     func timelineViewPointDataArray() -> [TimelinePointData]
 }
 
-protocol TimelineViewDelegate: AnyObject {
-    
-    func timelineViewShouldTrimVerticalEdges() -> Bool
-}
+//protocol TimelineViewDelegate: AnyObject {
+//
+//    func timelineViewShouldTrimVerticalEdges() -> Bool
+//}
 
 final class TimelineView: UIView {
     
-//    private let defaultDayHeight: CGFloat = 240
     
-    /*weak*/ var dataSource: TimelineViewDataSource?
-    weak var delegate: TimelineViewDelegate?
+    weak var dataSource: TimelineViewDataSource?
+//    weak var delegate: TimelineViewDelegate?
     
     var calendar: Calendar = .current
-//
-//    private var dayHeight: CGFloat {
-//        delegate?.timelineViewDayHeight() ?? defaultDayHeight
-//    }
-//
-//    init() {
-//        super.init(frame: .zero)
-//        backgroundColor = .red
-//        Height == 100
-////        commonInit()
-//    }
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-////        commonInit()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-////        commonInit()
-//    }
-    
-//    override func layoutSubviews() {
-//        reloadContent()
-//    }
     
     func reloadContent() {
         guard let pointsData = dataSource?.timelineViewPointDataArray(),
@@ -76,14 +57,6 @@ final class TimelineView: UIView {
         createTimelineView(withData: pointsData,
                            insideOf: self)
     }
-    
-//    private func getOverallContentHeight(forNumberOfDays days: Int) -> CGFloat {
-//        CGFloat(days) * dayHeight
-//    }
-//
-//    private func calculateDayHeight(forNumberOfDays days: Int) -> CGFloat {
-//        self.frame.height / CGFloat(days)
-//    }
 }
 
 // MARK: - Views Creation
@@ -125,6 +98,7 @@ private extension TimelineView {
                 subviews(waypointView)
                 
                 waypointView.Width == view.Width
+                waypointView.Height == 10
                 
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
                     waypointView.CenterY == lastItemBottomAnchor
@@ -208,37 +182,56 @@ private extension TimelineView {
     
 }
 
-struct Timeline: UIViewControllerRepresentable {
+// TOD: Place in separate file
+
+struct Timeline: UIViewRepresentable {
     
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let vc = TimelineTestVC()
-        vc.dataSource = RouteTimelineCoordinator(presentingVC: UIViewController())
+    typealias UIViewType = TimelineView
+    
+    @Binding var pointsData: [TimelinePointData]
+    
+    class Coordinator: NSObject, TimelineViewDataSource {
         
-        return vc
+        var pointsData: [TimelinePointData] = []
+        
+        func timelineViewPointDataArray() -> [TimelinePointData] {
+            pointsData
+        }
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    func makeUIView(context: Context) -> TimelineView {
+        let view = TimelineView()
+        view.dataSource = context.coordinator
         
+        return view
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        .init()
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        context.coordinator.pointsData = pointsData
+        uiView.reloadContent()
     }
 }
 
-struct TimelineVCRep: UIViewControllerRepresentable {
+// TODO: REMOVE
+
+private extension Date {
     
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let vc = TimelineTestVC()
-        vc.dataSource = RouteTimelineCoordinator(presentingVC: UIViewController())
+    static func date(daysAgo: Int, from date: Date) -> Date {
+        let dateComponents = DateComponents(day: -daysAgo)
         
-        return vc
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
+        return Calendar.current.date(byAdding: dateComponents, to: date) ?? Date()
     }
 }
 
 struct RouteTimeline_Previews: PreviewProvider {
     static var previews: some View {
-        Timeline()
+        let vm = RouteTimelineViewModel(flow: .init())
+        
+        RouteTimeline(viewModel: vm)
             .previewLayout(.sizeThatFits)
     }
 }
