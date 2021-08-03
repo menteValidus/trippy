@@ -10,11 +10,14 @@ import UIKit
 import Stevia
 import TimelineView
 
-//struct RouteTimeline: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
+struct RouteTimeline: View {
+    var body: some View {
+        ScrollView(.vertical,
+                   showsIndicators: false) {
+            Timeline()
+        }
+    }
+}
 
 
 protocol TimelineViewDataSource: AnyObject {
@@ -31,7 +34,7 @@ final class TimelineView: UIView {
     
 //    private let defaultDayHeight: CGFloat = 240
     
-    weak var dataSource: TimelineViewDataSource?
+    /*weak*/ var dataSource: TimelineViewDataSource?
     weak var delegate: TimelineViewDelegate?
     
     var calendar: Calendar = .current
@@ -57,7 +60,11 @@ final class TimelineView: UIView {
 ////        commonInit()
 //    }
     
-    private func reloadContent() {
+//    override func layoutSubviews() {
+//        reloadContent()
+//    }
+    
+    func reloadContent() {
         guard let pointsData = dataSource?.timelineViewPointDataArray(),
               let startDate = pointsData.first?.dateInterval.start,
               let endDate = pointsData.last?.dateInterval.end,
@@ -66,7 +73,8 @@ final class TimelineView: UIView {
             return
         }
         
-        
+        createTimelineView(withData: pointsData,
+                           insideOf: self)
     }
     
 //    private func getOverallContentHeight(forNumberOfDays days: Int) -> CGFloat {
@@ -84,32 +92,95 @@ private extension TimelineView {
     
     func createTimelineView(withData pointsData: [TimelinePointData],
                             insideOf view: UIView) {
-        let overallDuration = pointsData.computeCompletedDaysDurationInSecs(withCalendar: calendar)
+        guard let overallDuration = pointsData.computeCompletedDaysDurationInSecs(withCalendar: calendar) else {
+            assertionFailure("Failed to compute overall duration of the path")
+            return
+        }
+        
         var lastItemBottomAnchor: SteviaAttribute?
+        var lastWaypointBottomAnchor: SteviaAttribute?
         
         for displaymentInfo in pointsData.convertedToDisplaymentInfo(usingCalendar: calendar) {
             switch displaymentInfo {
+            // TODO: Remove code duplication
             case .emptySpace(let duration):
-                break
+                let emptyView = createEmptySpaceView()
+                subviews(emptyView)
+                
+                emptyView.Width == view.Width
+                
+                if let lastItemBottomAnchor = lastItemBottomAnchor {
+                    emptyView.Top == lastItemBottomAnchor
+                } else {
+                    emptyView.Top == view.Top
+                }
+                
+                let multiplier = CGFloat(duration) / CGFloat(overallDuration)
+                emptyView.Height == view.Height * multiplier
+                
+                lastItemBottomAnchor = emptyView.Bottom
                 
             case .waypoint(let data):
                 let waypointView = createWaypointView(withData: data)
+                subviews(waypointView)
+                
+                waypointView.Width == view.Width
                 
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
                     waypointView.CenterY == lastItemBottomAnchor
                 } else {
-                    
+                    waypointView.CenterY == view.Top
                 }
-                break
+                
+                if let lastWaypointBottomAnchor = lastWaypointBottomAnchor {
+                    waypointView.Top >= lastWaypointBottomAnchor
+                }
+                
+                lastWaypointBottomAnchor = waypointView.Bottom
                 
             case .staying(let duration):
-                break
+                let stayingView = createStayingView()
+                subviews(stayingView)
+                
+                stayingView.Width == view.Width
+                
+                if let lastItemBottomAnchor = lastItemBottomAnchor {
+                    stayingView.Top == lastItemBottomAnchor
+                } else {
+                    stayingView.Top == view.Top
+                }
+                
+                let multiplier = CGFloat(duration) / CGFloat(overallDuration)
+                stayingView.Height == view.Height * multiplier
+                
+                lastItemBottomAnchor = stayingView.Bottom
                 
             case .inTransit(let duration):
-                break
+                let inTransitView = createInTransitView()
+                subviews(inTransitView)
+                
+                inTransitView.Width == view.Width
+                
+                if let lastItemBottomAnchor = lastItemBottomAnchor {
+                    inTransitView.Top == lastItemBottomAnchor
+                } else {
+                    inTransitView.Top == view.Top
+                }
+                
+                let multiplier = CGFloat(duration) / CGFloat(overallDuration)
+                inTransitView.Height == view.Height * multiplier
+                
+                lastItemBottomAnchor = inTransitView.Bottom
                 
             }
         }
+    }
+    
+    func createEmptySpaceView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .black
+        
+        return view
     }
     
     func createWaypointView(withData data: WaypointData) -> UIView {
@@ -137,13 +208,32 @@ private extension TimelineView {
     
 }
 
-struct Timeline: UIViewRepresentable {
+struct Timeline: UIViewControllerRepresentable {
     
-    func makeUIView(context: Context) -> some UIView {
-        TimelineView()
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let vc = TimelineTestVC()
+        vc.dataSource = RouteTimelineCoordinator(presentingVC: UIViewController())
+        
+        return vc
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) { }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+}
+
+struct TimelineVCRep: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let vc = TimelineTestVC()
+        vc.dataSource = RouteTimelineCoordinator(presentingVC: UIViewController())
+        
+        return vc
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
 }
 
 struct RouteTimeline_Previews: PreviewProvider {

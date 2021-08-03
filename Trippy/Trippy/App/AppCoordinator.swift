@@ -25,6 +25,7 @@ class AppCoordinator: BaseCoordinator {
         presentedViewController = vc
         
         navigateToInitialScreen()
+//        navigateToRouteTimelineScreen()
     }
 }
 
@@ -39,6 +40,18 @@ private extension AppCoordinator {
         
         add(dependency: coordinator)
     }
+    
+    func navigateToRouteTimelineScreen() {
+        guard let presentingVC = presentedViewController else { return }
+        
+        let coordinator = RouteTimelineCoordinator(presentingVC: presentingVC)
+        coordinator.delegate = self
+        coordinator.start()
+        
+        add(dependency: coordinator)
+    }
 }
 
 extension AppCoordinator: RouteCreationCoordinatorDelegate { }
+
+extension AppCoordinator: RouteTimelineCoordinatorDelegate { }

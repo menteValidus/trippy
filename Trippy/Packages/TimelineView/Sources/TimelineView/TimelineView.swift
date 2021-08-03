@@ -3,8 +3,15 @@
 import Foundation
 
 public struct TimelinePointData {
+    
     public let dateInterval: DateInterval
     public let title: String
+    
+    public init(dateInterval: DateInterval,
+                title: String) {
+        self.dateInterval = dateInterval
+        self.title = title
+    }
 }
 
 private extension Int {
