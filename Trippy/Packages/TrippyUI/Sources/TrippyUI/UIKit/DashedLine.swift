@@ -29,7 +29,7 @@ public final class DashedLine: UIView {
         let lineDashPattern: [NSNumber]  = [10, 10]
 
         let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = color?.cgColor
         shapeLayer.lineWidth = bounds.width
         shapeLayer.lineDashPattern = lineDashPattern
         

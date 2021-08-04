@@ -66,9 +66,6 @@ final class TimelinePoint: UIView {
         waypointMarkView.Width == 22
         waypointMarkView.Height == waypointMarkView.Width
         
-        
-//        waypointMarkView.LastBaseline == dateLabel.FirstBaseline
-        c
         waypointMarkView.Top == dateLabel.Top
         waypointMarkView.Trailing == dateLabel.Leading - 15
         waypointMarkView.Leading == Leading

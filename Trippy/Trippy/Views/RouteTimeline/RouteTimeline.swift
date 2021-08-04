@@ -99,10 +99,14 @@ private extension TimelineView {
                 let waypointView = createWaypointView(withData: data)
                 subviews(waypointView)
                 
-                waypointView.Trailing == view.Trailing
+                // TODO: Replace it with correct center anchor calculation
+                let itemHorizontalOffset: CGFloat = 10
+                waypointView.Trailing == view.Trailing - itemHorizontalOffset
                 
+                // TODO: Replace it with correct center anchor calculation
+                let itemVerticalOffset: CGFloat = 15
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
-                    waypointView.CenterY == lastItemBottomAnchor
+                    waypointView.CenterY == lastItemBottomAnchor + itemVerticalOffset
                 } else {
                     waypointView.CenterY == view.Top
                 }
@@ -155,7 +159,7 @@ private extension TimelineView {
     
     func createEmptySpaceView() -> UIView {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .clear
         
         return view
     }
