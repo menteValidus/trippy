@@ -55,8 +55,8 @@ extension TimelinePieceType: Equatable {
 
 public struct WaypointData {
     
-    let date: Date
-    let title: String?
+    public let date: Date
+    public let title: String?
     
     public init(date: Date,
          title: String? = nil) {

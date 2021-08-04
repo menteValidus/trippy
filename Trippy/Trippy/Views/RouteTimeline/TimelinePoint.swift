@@ -12,15 +12,21 @@ import Stevia
 
 final class TimelinePoint: UIView {
     
+    // MARK: - Constants
+    
     private let fontSize: CGFloat = 24
+    private let waypointMarkDiameter: CGFloat = 22
+    private let itemsSpacing: CGFloat = 15
+    
+    // MARK: -
     
     private var data: WaypointData = .init(date: Date(),
-                                           title: nil)
+                                           title: "Taganrog")
     
     init() {
         super.init(frame: .zero)
         
-        commonInit()
+        configureView()
     }
     
     init(withData data: WaypointData) {
@@ -28,22 +34,23 @@ final class TimelinePoint: UIView {
         
         super.init(frame: .zero)
         
-        commonInit()
+        configureView()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        commonInit()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        commonInit()
+        configureView()
     }
     
-    private func commonInit() {
+    // TODO: Break into several separate methods
+    private func configureView() {
         let dateLabel = createDateLabel()
         
         subviews(dateLabel)
@@ -63,18 +70,44 @@ final class TimelinePoint: UIView {
         
         subviews(waypointMarkView)
         
-        waypointMarkView.Width == 22
+        waypointMarkView.Width == waypointMarkDiameter
         waypointMarkView.Height == waypointMarkView.Width
         
         waypointMarkView.Top == dateLabel.Top
-        waypointMarkView.Trailing == dateLabel.Leading - 15
-        waypointMarkView.Leading == Leading
+        waypointMarkView.Trailing == dateLabel.Leading - itemsSpacing
+        
+        
+        let leadingAnchorAttribute: SteviaAttribute
+        if let titleLabel = createTitleLabel() {
+            subviews(titleLabel)
+            
+            titleLabel.Leading == Leading
+            titleLabel.Top == Top
+            leadingAnchorAttribute = titleLabel.Trailing
+        } else {
+            leadingAnchorAttribute = Leading
+        }
+        
+        waypointMarkView.Leading == leadingAnchorAttribute + itemsSpacing
     }
 }
 
 // MARK: - Views Creation
 
 private extension TimelinePoint {
+    
+    func createTitleLabel() -> UILabel? {
+        guard let title = data.title else { return nil }
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = .systemFont(ofSize: fontSize,
+                                     weight: .regular)
+        // TODO: Change it to the some other separate color
+        titleLabel.textColor = Asset.Color.ConnectionLine.background.uiColor
+        
+        return titleLabel
+    }
     
     func createDateLabel() -> UILabel {
         let dateLabel = UILabel()
@@ -112,17 +145,24 @@ import SwiftUI
 
 struct TimelinePoint_Previews: PreviewProvider, UIViewRepresentable {
     
+    let data: WaypointData
+    
     func makeUIView(context: Context) -> some UIView {
-        TimelinePoint()
+        TimelinePoint(withData: data)
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) { }
     
     static var previews: some View {
-        Self()
-            .background(Asset.Color.RouteTimeline.Background.primary.color)
-            .previewLayout(.fixed(width: 200,
-                                  height: 60))
+        Group {
+            Self(data: .init(date: Date(),
+                             title: "Taganrog"))
+            Self(data: .init(date: Date(),
+                             title: nil))
+        }
+        .background(Asset.Color.RouteTimeline.Background.primary.color)
+        .previewLayout(.fixed(width: 260,
+                              height: 60))
     }
 }
 
