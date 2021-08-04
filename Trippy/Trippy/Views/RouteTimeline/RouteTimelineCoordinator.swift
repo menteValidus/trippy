@@ -23,7 +23,9 @@ final class RouteTimelineCoordinator: BaseCoordinator {
     
     override func start() {
         let vm = RouteTimelineViewModel(flow: .init())
-        let vc = UIHostingController(rootView: RouteTimeline(viewModel: vm))
+        let view = RouteTimeline(viewModel: vm)
+            .navigationBarHidden(true)
+        let vc = UIHostingController(rootView: view)
         present(vc, in: presentingVC)
     }
 }

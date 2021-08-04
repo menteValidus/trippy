@@ -120,7 +120,7 @@ struct TimelinePoint_Previews: PreviewProvider, UIViewRepresentable {
     
     static var previews: some View {
         Self()
-            .background(Asset.Color.Background.secondary.color)
+            .background(Asset.Color.RouteTimeline.Background.primary.color)
             .previewLayout(.fixed(width: 200,
                                   height: 60))
     }

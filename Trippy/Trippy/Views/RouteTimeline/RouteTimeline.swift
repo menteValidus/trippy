@@ -17,33 +17,63 @@ struct RouteTimeline: View {
     
     @ObservedObject var viewModel: RouteTimelineViewModel
     
+    private var unevenDayColor: Color = Asset.Color.RouteTimeline.Background.primary.color
+    private var evedDayColor: Color = Asset.Color.RouteTimeline.Background.secondary.color
+    
+    init(viewModel: RouteTimelineViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         ScrollView(.vertical,
                    showsIndicators: false) {
             Timeline(pointsData: $viewModel.pointsData)
                 .frame(maxWidth: .infinity)
                 .frame(height: defaultDayHeight * CGFloat(viewModel.pointsData.count))
+                .background(TwoColorPatternBackground(numberOfRepetitions: viewModel.pointsData.count,
+                                                      firstColor: unevenDayColor,
+                                                      secondColor: evedDayColor))
         }
+        .background(overallBackground()
+                        .ignoresSafeArea())
+    }
+    
+    private func overallBackground() -> Color {
+        let isEven = viewModel.pointsData.count % 2 == 0
+        
+        return isEven ? unevenDayColor : evedDayColor
     }
 }
 
+struct TwoColorPatternBackground: View {
+    
+    let numberOfRepetitions: Int
+    let firstColor: Color
+    let secondColor: Color
+    
+    var body: some View {
+        VStack(spacing: 0 ) {
+            ForEach(0..<numberOfRepetitions) { number in
+                let isEven = number % 2 == 0
+                
+                Group {
+                    isEven ? firstColor : secondColor
+                }
+            }
+        }
+    }
+}
 
 protocol TimelineViewDataSource: AnyObject {
     
     func timelineViewPointDataArray() -> [TimelinePointData]
 }
 
-//protocol TimelineViewDelegate: AnyObject {
-//
-//    func timelineViewShouldTrimVerticalEdges() -> Bool
-//}
-
 final class TimelineView: UIView {
     
     private let connectionViewsWidth: CGFloat = 2
     
     weak var dataSource: TimelineViewDataSource?
-//    weak var delegate: TimelineViewDelegate?
     
     var calendar: Calendar = .current
     

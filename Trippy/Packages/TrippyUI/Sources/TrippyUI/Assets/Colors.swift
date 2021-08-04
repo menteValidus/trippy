@@ -14,15 +14,18 @@ public extension Asset {
             static let sunYellow = ColorAsset(name: "SunYellow")
             static let white = ColorAsset(name: "White")
             static let indigo = ColorAsset(name: "Indigo")
+            static let buff = ColorAsset(name: "Buff")
         }
         
         public static let primaryBackground = BaseColor.violetBlue
         public static let accent = BaseColor.sunYellow
         public static let separator = BaseColor.white
         
-        public enum Background {
-//            public static let primary = BaseColor.violetBlue
-            public static let secondary = BaseColor.sunYellow
+        public enum RouteTimeline {
+            public enum Background {
+                public static let primary = BaseColor.sunYellow
+                public static let secondary = BaseColor.buff
+            }
         }
         
         public enum Text {
