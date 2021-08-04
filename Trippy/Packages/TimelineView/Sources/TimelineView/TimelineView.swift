@@ -58,7 +58,7 @@ public struct WaypointData {
     let date: Date
     let title: String?
     
-    init(date: Date,
+    public init(date: Date,
          title: String? = nil) {
         self.date = date
         self.title = title

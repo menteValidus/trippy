@@ -99,8 +99,7 @@ private extension TimelineView {
                 let waypointView = createWaypointView(withData: data)
                 subviews(waypointView)
                 
-                waypointView.Width == view.Width
-                waypointView.Height == 10
+                waypointView.Trailing == view.Trailing
                 
                 if let lastItemBottomAnchor = lastItemBottomAnchor {
                     waypointView.CenterY == lastItemBottomAnchor
@@ -156,15 +155,13 @@ private extension TimelineView {
     
     func createEmptySpaceView() -> UIView {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .gray
         
         return view
     }
     
     func createWaypointView(withData data: WaypointData) -> UIView {
-        let view = UIView()
-        view.backgroundColor = .red
-        view.Height == 16
+        let view = TimelinePoint(withData: data)
         
         return view
     }
@@ -216,17 +213,6 @@ struct Timeline: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         context.coordinator.pointsData = pointsData
         uiView.reloadContent()
-    }
-}
-
-// TODO: REMOVE
-
-private extension Date {
-    
-    static func date(daysAgo: Int, from date: Date) -> Date {
-        let dateComponents = DateComponents(day: -daysAgo)
-        
-        return Calendar.current.date(byAdding: dateComponents, to: date) ?? Date()
     }
 }
 
