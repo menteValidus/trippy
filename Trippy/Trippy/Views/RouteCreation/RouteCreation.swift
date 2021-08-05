@@ -89,13 +89,19 @@ private extension RouteCreation {
         viewModel.proceed()
     }
 }
+#if DEBUG
+
+import Repository
 
 struct RouteCreation_Previews: PreviewProvider {
     
     static var previews: some View {
-        let vm = RouteCreationViewModel(flow: .init())
+        let vm = RouteCreationViewModel(flow: .init(),
+                                        routeRepository: InMemoryRouteRepository())
         vm.insertWaypoint(at: 0)
         
         return RouteCreation(viewModel: vm)
     }
 }
+
+#endif

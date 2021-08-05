@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import Coordinator
+import Repository
 
 protocol RouteCreationCoordinatorDelegate: CoordinatorDelegate { }
 
@@ -22,8 +23,14 @@ final class RouteCreationCoordinator: BaseCoordinator {
     }
     
     override func start() {
+        guard let routeRepository = DependencyInjector.shared.resolve(RouteRepository.self) else {
+            assertionFailure("Failed to resolve dependencies")
+            return
+        }
+        
         let vm = RouteCreationViewModel(flow: .init(addWaypoint: addWaypoint,
-                                                    proceed: navigateToTheRouteTimeline))
+                                                    proceed: navigateToTheRouteTimeline),
+                                        routeRepository: routeRepository)
         let vc = UIHostingController(rootView: RouteCreation(viewModel: vm))
         vc.overrideUserInterfaceStyle = .dark
         
