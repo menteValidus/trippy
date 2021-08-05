@@ -1,5 +1,5 @@
 //
-//  TimelinePoint.swift
+//  TimelinePointView.swift
 //  Trippy
 //
 //  Created by Denis Cherniy on 03.08.2021.
@@ -9,7 +9,7 @@ import UIKit
 import TrippyUI
 import Stevia
 
-final class TimelinePoint: UIView {
+final class TimelinePointView: UIView {
     
     // MARK: - Constants
     
@@ -97,7 +97,7 @@ final class TimelinePoint: UIView {
 
 // MARK: - Views Creation
 
-private extension TimelinePoint {
+private extension TimelinePointView {
     
     func createTitleLabel() -> UILabel? {
         guard let title = data.title else { return nil }
@@ -142,27 +142,6 @@ private extension TimelinePoint {
     }
 }
 
-// TODO: Move to the separate package and cover with tests
-
-public extension DateFormatter {
-    
-    static var dateAndWeekdayDateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM (EEEEEE)"
-        dateFormatter.doesRelativeDateFormatting = false
-        
-        return dateFormatter
-    }
-    
-    static var shortTimeFormatter: DateFormatter {
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateStyle = .none
-        timeFormatter.timeStyle = .short
-        
-        return timeFormatter
-    }
-}
-
 #if DEBUG
 
 import SwiftUI
@@ -172,7 +151,7 @@ struct TimelinePoint_Previews: PreviewProvider, UIViewRepresentable {
     let data: WaypointData
     
     func makeUIView(context: Context) -> some UIView {
-        TimelinePoint(withData: data)
+        TimelinePointView(withData: data)
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) { }
