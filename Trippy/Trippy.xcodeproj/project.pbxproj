@@ -143,7 +143,6 @@
 		0B0EFE6E265C23DE00C2EFC2 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				0B6A47B026BC5BE200B21044 /* DependencyContainer */,
 				0BA557F32658ED2900EAE191 /* AppDelegate.swift */,
 				0BA557F52658ED2900EAE191 /* SceneDelegate.swift */,
 				0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */,
@@ -201,6 +200,14 @@
 			path = DependencyContainer;
 			sourceTree = "<group>";
 		};
+		0B6A47B726BC65D800B21044 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A47B026BC5BE200B21044 /* DependencyContainer */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0B920B4D26B3441900830932 /* RouteTimeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +244,9 @@
 		0BA557F22658ED2900EAE191 /* Trippy */ = {
 			isa = PBXGroup;
 			children = (
-				0B0EFE76265CC50300C2EFC2 /* Resources */,
 				0B0EFE6E265C23DE00C2EFC2 /* App */,
+				0B6A47B726BC65D800B21044 /* Models */,
+				0B0EFE76265CC50300C2EFC2 /* Resources */,
 				0BA55823265A2A0200EAE191 /* Views */,
 			);
 			path = Trippy;
