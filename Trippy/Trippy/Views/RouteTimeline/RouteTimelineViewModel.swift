@@ -49,6 +49,7 @@ final class RouteTimelineViewModel: ViewModel {
     }
 }
 
+// TODO: Shouldn't be here
 private extension Date {
     
     static func date(daysAgo: Int, from date: Date) -> Date {

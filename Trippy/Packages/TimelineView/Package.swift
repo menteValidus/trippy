@@ -14,11 +14,16 @@ let package = Package(
             targets: ["TimelineView"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/freshOS/Stevia", .upToNextMajor(from: .init("5.1.1"))),
+        .package(path: "../TrippyUI")
     ],
     targets: [
         .target(
             name: "TimelineView",
-            dependencies: []),
+            dependencies: [
+                .product(name: "Stevia", package: "Stevia"),
+                "TrippyUI"
+            ]),
         .testTarget(
             name: "TimelineViewTests",
             dependencies: ["TimelineView"]),
