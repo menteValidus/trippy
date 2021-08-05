@@ -266,13 +266,13 @@
 		0BA55823265A2A0200EAE191 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BA55824265A2A0F00EAE191 /* RouteCreation */,
 				0B920B4D26B3441900830932 /* RouteTimeline */,
-				0BA55824265A2A0F00EAE191 /* InitialRouteCreation */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0BA55824265A2A0F00EAE191 /* InitialRouteCreation */ = {
+		0BA55824265A2A0F00EAE191 /* RouteCreation */ = {
 			isa = PBXGroup;
 			children = (
 				0B095CC826B1CE7400611B7F /* Views */,
@@ -280,7 +280,7 @@
 				0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */,
 				0B11F81E26B0775B00D80742 /* RouteCreation.swift */,
 			);
-			path = InitialRouteCreation;
+			path = RouteCreation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
