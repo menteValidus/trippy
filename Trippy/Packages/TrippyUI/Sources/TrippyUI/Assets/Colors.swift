@@ -9,18 +9,37 @@ public extension Asset {
     
     enum Color {
         
-        public static var primaryBackground = ColorAsset(name: "VioletBlue")
-        public static let accent = ColorAsset(name: "SunYellow")
-        public static let separator = ColorAsset(name: "White")
+        private enum BaseColor {
+            static let violetBlue = ColorAsset(name: "VioletBlue")
+            static let sunYellow = ColorAsset(name: "SunYellow")
+            static let white = ColorAsset(name: "White")
+            static let indigo = ColorAsset(name: "Indigo")
+            static let buff = ColorAsset(name: "Buff")
+        }
+        
+        public static let primaryBackground = BaseColor.violetBlue
+        public static let accent = BaseColor.sunYellow
+        public static let separator = BaseColor.white
+        
+        public enum RouteTimeline {
+            public enum Background {
+                public static let primary = BaseColor.sunYellow
+                public static let secondary = BaseColor.buff
+            }
+        }
         
         public enum Text {
-            public static let primary = ColorAsset(name: "White")
-            public static let accent = ColorAsset(name: "SunYellow")
+            public static let primary = BaseColor.white
+            public static let accent = BaseColor.sunYellow
         }
         
         public enum Button {
-            public static var background = ColorAsset(name: "SunYellow")
-            public static var text = ColorAsset(name: "Indigo")
+            public static let background = BaseColor.sunYellow
+            public static let text = BaseColor.indigo
+        }
+        
+        public enum ConnectionLine {
+            public static let background = BaseColor.indigo
         }
     }
 }

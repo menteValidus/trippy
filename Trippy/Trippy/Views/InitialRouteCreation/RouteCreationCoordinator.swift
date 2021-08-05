@@ -22,15 +22,33 @@ final class RouteCreationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-//        let vc = RouteCreationViewController()
-        let vm = RouteCreationViewModel(flow: .init())
+        let vm = RouteCreationViewModel(flow: .init(addWaypoint: addWaypoint,
+                                                    proceed: navigateToTheRouteTimeline))
         let vc = UIHostingController(rootView: RouteCreation(viewModel: vm))
         vc.overrideUserInterfaceStyle = .dark
-        
-//        let vm = RouteCreationViewModel(flow: .init())
-//        vc.viewModel = vm
         
         present(vc, in: presentingViewController, animated: UIView.areAnimationsEnabled)
         presentedViewController = vc
     }
 }
+
+private extension RouteCreationCoordinator {
+    
+    func addWaypoint() {
+        
+    }
+    
+    func navigateToTheRouteTimeline() {
+        guard let presentedVC = presentedViewController else {
+            assertionFailure("Presented VC is nil")
+            return
+        }
+        let coordinator = RouteTimelineCoordinator(presentingVC: presentedVC)
+        coordinator.delegate = self
+        coordinator.start()
+        
+        add(dependency: coordinator)
+    }
+}
+
+extension RouteCreationCoordinator: RouteTimelineCoordinatorDelegate { }

@@ -43,6 +43,13 @@
         "identifier" : "RepositoryTests",
         "name" : "RepositoryTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/TimelineView",
+        "identifier" : "TimelineViewTests",
+        "name" : "TimelineViewTests"
+      }
     }
   ],
   "version" : 1
