@@ -12,6 +12,8 @@ public final class InMemoryRouteRepository: RouteRepository {
     
     var waypointDataList: [WaypointData] = []
     
+    public init() { }
+    
     public func getAll() -> [WaypointData] {
         waypointDataList
     }

@@ -16,6 +16,9 @@
 		0B4F850526B9A69B009100F3 /* RouteTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */; };
 		0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypoint.swift */; };
 		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
+		0B6A47AF26BC5AB900B21044 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47AE26BC5AB900B21044 /* Swinject */; };
+		0B6A47B226BC5C0700B21044 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */; };
+		0B6A47B426BC5F2200B21044 /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */; };
 		0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */; };
 		0B6D0B3E26B55CFE005F8E97 /* RouteTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */; };
 		0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6D0B4026B6AC78005F8E97 /* TimelineView */; };
@@ -61,6 +64,8 @@
 		0B4B445926BBBA2100104041 /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineViewModel.swift; sourceTree = "<group>"; };
 		0B52916D265D691900BE7307 /* CornerWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypoint.swift; sourceTree = "<group>"; };
+		0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAssembly.swift; sourceTree = "<group>"; };
 		0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineCoordinator.swift; sourceTree = "<group>"; };
 		0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimeline.swift; sourceTree = "<group>"; };
 		0B6D0B3F26B6ABF0005F8E97 /* TimelineView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TimelineView; sourceTree = "<group>"; };
@@ -102,6 +107,7 @@
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
 				0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */,
 				0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */,
+				0B6A47AF26BC5AB900B21044 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,7 @@
 		0B0EFE6E265C23DE00C2EFC2 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0B6A47B026BC5BE200B21044 /* DependencyContainer */,
 				0BA557F32658ED2900EAE191 /* AppDelegate.swift */,
 				0BA557F52658ED2900EAE191 /* SceneDelegate.swift */,
 				0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */,
@@ -183,6 +190,15 @@
 				0B4B445926BBBA2100104041 /* Timeline.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0B6A47B026BC5BE200B21044 /* DependencyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */,
+				0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */,
+			);
+			path = DependencyContainer;
 			sourceTree = "<group>";
 		};
 		0B920B4D26B3441900830932 /* RouteTimeline */ = {
@@ -291,6 +307,7 @@
 				0BBFF7A72660121C004B9C33 /* Domain */,
 				0B8E48E426A7E98000AFEB19 /* TrippyUI */,
 				0B6D0B4026B6AC78005F8E97 /* TimelineView */,
+				0B6A47AE26BC5AB900B21044 /* Swinject */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -365,6 +382,7 @@
 			mainGroup = 0BA557E72658ED2900EAE191;
 			packageReferences = (
 				0B529172265D752900BE7307 /* XCRemoteSwiftPackageReference "Stevia" */,
+				0B6A47AD26BC5AB900B21044 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 0BA557F12658ED2900EAE191 /* Products */;
 			projectDirPath = "";
@@ -410,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B6D0B3E26B55CFE005F8E97 /* RouteTimeline.swift in Sources */,
+				0B6A47B226BC5C0700B21044 /* DependencyInjector.swift in Sources */,
 				0B7DC3A6265EB16700C743B2 /* RouteCreationViewModel.swift in Sources */,
 				0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */,
 				0B4B445A26BBBA2100104041 /* Timeline.swift in Sources */,
@@ -421,6 +440,7 @@
 				0B920B4A26B334D500830932 /* GoButton.swift in Sources */,
 				0B7DC3AD265F472A00C743B2 /* IntermediateWaypoint.swift in Sources */,
 				0BA557F42658ED2900EAE191 /* AppDelegate.swift in Sources */,
+				0B6A47B426BC5F2200B21044 /* RepositoriesAssembly.swift in Sources */,
 				0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */,
 				0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */,
 			);
@@ -757,6 +777,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		0B6A47AD26BC5AB900B21044 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -768,6 +796,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B529172265D752900BE7307 /* XCRemoteSwiftPackageReference "Stevia" */;
 			productName = Stevia;
+		};
+		0B6A47AE26BC5AB900B21044 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B6A47AD26BC5AB900B21044 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		0B6D0B4026B6AC78005F8E97 /* TimelineView */ = {
 			isa = XCSwiftPackageProductDependency;
