@@ -23,6 +23,10 @@ final class TimelinePoint: UIView {
     private var data: WaypointData = .init(date: Date(),
                                            title: "Taganrog")
     
+    var dateFormatter: DateFormatter = DateFormatter.dateAndWeekdayDateFormatter
+    
+    var timeFormatter: DateFormatter = DateFormatter.shortTimeFormatter
+    
     init() {
         super.init(frame: .zero)
         
@@ -73,7 +77,7 @@ final class TimelinePoint: UIView {
         waypointMarkView.Width == waypointMarkDiameter
         waypointMarkView.Height == waypointMarkView.Width
         
-        waypointMarkView.Top == dateLabel.Top
+        waypointMarkView.Bottom == dateLabel.LastBaseline
         waypointMarkView.Trailing == dateLabel.Leading - itemsSpacing
         
         
@@ -111,7 +115,7 @@ private extension TimelinePoint {
     
     func createDateLabel() -> UILabel {
         let dateLabel = UILabel()
-        dateLabel.text = "15.08 (вс)"
+        dateLabel.text = dateFormatter.string(from: data.date)
         dateLabel.font = .systemFont(ofSize: fontSize,
                                      weight: .regular)
         // TODO: Change it to the some other separate color
@@ -122,7 +126,7 @@ private extension TimelinePoint {
     
     func createTimeLabel() -> UILabel {
         let timeLabel = UILabel()
-        timeLabel.text = "6:00"
+        timeLabel.text = timeFormatter.string(from: data.date)
         timeLabel.font = .systemFont(ofSize: fontSize,
                                      weight: .thin)
         // TODO: Change it to the some other separate color
@@ -136,6 +140,27 @@ private extension TimelinePoint {
         circleView.backgroundColor = Asset.Color.ConnectionLine.background.uiColor
 
         return circleView
+    }
+}
+
+// TODO: Move to the separate package and cover with tests
+
+public extension DateFormatter {
+    
+    static var dateAndWeekdayDateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM (EEEEEE)"
+        dateFormatter.doesRelativeDateFormatting = false
+        
+        return dateFormatter
+    }
+    
+    static var shortTimeFormatter: DateFormatter {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
+        
+        return timeFormatter
     }
 }
 
