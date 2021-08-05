@@ -20,6 +20,7 @@
 		0B6A47B226BC5C0700B21044 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */; };
 		0B6A47B426BC5F2200B21044 /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */; };
 		0B6A47B626BC633200B21044 /* Repository in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47B526BC633200B21044 /* Repository */; };
+		0B6A47BB26BC6A5E00B21044 /* RouteCreationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47BA26BC6A5E00B21044 /* RouteCreationViewModelTests.swift */; };
 		0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */; };
 		0B6D0B3E26B55CFE005F8E97 /* RouteTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */; };
 		0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6D0B4026B6AC78005F8E97 /* TimelineView */; };
@@ -67,6 +68,7 @@
 		0B52916D265D691900BE7307 /* CornerWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerWaypoint.swift; sourceTree = "<group>"; };
 		0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAssembly.swift; sourceTree = "<group>"; };
+		0B6A47BA26BC6A5E00B21044 /* RouteCreationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreationViewModelTests.swift; sourceTree = "<group>"; };
 		0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineCoordinator.swift; sourceTree = "<group>"; };
 		0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimeline.swift; sourceTree = "<group>"; };
 		0B6D0B3F26B6ABF0005F8E97 /* TimelineView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TimelineView; sourceTree = "<group>"; };
@@ -208,6 +210,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0B6A47B826BC6A4300B21044 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A47B926BC6A4A00B21044 /* RouteCreation */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B6A47B926BC6A4A00B21044 /* RouteCreation */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A47BA26BC6A5E00B21044 /* RouteCreationViewModelTests.swift */,
+			);
+			path = RouteCreation;
+			sourceTree = "<group>";
+		};
 		0B920B4D26B3441900830932 /* RouteTimeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +273,7 @@
 		0BA558092658ED2A00EAE191 /* TrippyTests */ = {
 			isa = PBXGroup;
 			children = (
+				0B6A47B826BC6A4300B21044 /* Views */,
 				0BA55827265A342B00EAE191 /* UnitTestPlan.xctestplan */,
 				0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */,
 				0BA5580C2658ED2A00EAE191 /* Info.plist */,
@@ -460,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */,
+				0B6A47BB26BC6A5E00B21044 /* RouteCreationViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
