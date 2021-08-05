@@ -18,7 +18,7 @@ struct RouteTimeline: View {
     @ObservedObject var viewModel: RouteTimelineViewModel
     
     private var unevenDayColor: Color = Asset.Color.RouteTimeline.Background.primary.color
-    private var evedDayColor: Color = Asset.Color.RouteTimeline.Background.secondary.color
+    private var evenDayColor: Color = Asset.Color.RouteTimeline.Background.secondary.color
     
     init(viewModel: RouteTimelineViewModel) {
         self.viewModel = viewModel
@@ -32,7 +32,7 @@ struct RouteTimeline: View {
                 .frame(height: defaultDayHeight * CGFloat(viewModel.numberOfAffectedDays))
                 .background(TwoColorPatternBackground(numberOfRepetitions: viewModel.numberOfAffectedDays,
                                                       firstColor: unevenDayColor,
-                                                      secondColor: evedDayColor))
+                                                      secondColor: evenDayColor))
         }
         .background(overallBackground()
                         .ignoresSafeArea())
@@ -41,7 +41,7 @@ struct RouteTimeline: View {
     private func overallBackground() -> Color {
         let isEven = viewModel.pointsData.count % 2 == 0
         
-        return isEven ? unevenDayColor : evedDayColor
+        return isEven ? unevenDayColor : evenDayColor
     }
 }
 
