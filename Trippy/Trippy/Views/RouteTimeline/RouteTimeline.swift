@@ -29,8 +29,8 @@ struct RouteTimeline: View {
                    showsIndicators: false) {
             Timeline(pointsData: $viewModel.pointsData)
                 .frame(maxWidth: .infinity)
-                .frame(height: defaultDayHeight * CGFloat(viewModel.pointsData.count))
-                .background(TwoColorPatternBackground(numberOfRepetitions: viewModel.pointsData.count,
+                .frame(height: defaultDayHeight * CGFloat(viewModel.numberOfAffectedDays))
+                .background(TwoColorPatternBackground(numberOfRepetitions: viewModel.numberOfAffectedDays,
                                                       firstColor: unevenDayColor,
                                                       secondColor: evedDayColor))
         }

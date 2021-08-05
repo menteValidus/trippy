@@ -18,6 +18,13 @@ final class RouteTimelineViewModel: ViewModel {
     
     @Published var pointsData: [TimelinePointData] = []
     
+    var numberOfAffectedDays: Int {
+        guard let startDate = pointsData.first?.dateInterval.start,
+              let endDate = pointsData.last?.dateInterval.end else { return 0 }
+        
+        return Calendar.current.numberOfDaysBetween(startDate, andIncluding: endDate)
+    }
+    
     init(flow: Flow) {
         self.flow = flow
         

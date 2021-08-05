@@ -125,6 +125,15 @@ public extension Array where Element == TimelinePointData {
     }
 }
 
+// TODO: Move it to the separate package Extensions and cover with tests
+public extension Calendar {
+    
+    func numberOfDaysBetween(_ startDate: Date,
+                             andIncluding endDate: Date) -> Int {
+        return (numberOfDaysBetween(startDate, and: endDate) ?? 0) + 1
+    }
+}
+
 private extension Calendar {
     
     func numberOfDaysBetween(_ startDate: Date,
