@@ -7,6 +7,7 @@
 
 import Foundation
 import Domain
+import Combine
 
 public final class InMemoryRouteRepository: RouteRepository {
     
@@ -18,7 +19,11 @@ public final class InMemoryRouteRepository: RouteRepository {
         waypointDataList
     }
     
-    public func insert(_ waypointData: WaypointData) {
+    public func insert(_ waypointData: WaypointData) -> AnyPublisher<Void, RepositoryError> {
         waypointDataList.append(waypointData)
+        
+        return Just(())
+            .setFailureType(to: RepositoryError.self)
+            .eraseToAnyPublisher()
     }
 }

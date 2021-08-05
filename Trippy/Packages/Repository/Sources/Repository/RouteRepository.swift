@@ -6,9 +6,14 @@
 //
 
 import Domain
+import Combine
+
+public enum RepositoryError: Error {
+    
+}
 
 public protocol RouteRepository: AnyObject {
     
     func getAll() -> [WaypointData]
-    func insert(_ waypointData: WaypointData)
+    func insert(_ waypointData: WaypointData) -> AnyPublisher<Void, RepositoryError>
 }
