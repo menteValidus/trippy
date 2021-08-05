@@ -164,15 +164,15 @@
 		0B0EFE7D265CD1CA00C2EFC2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				0B6D0B3F26B6ABF0005F8E97 /* TimelineView */,
+				0BBFF7AB2660BE3D004B9C33 /* Controller */,
+				0BA55826265A2E4600EAE191 /* Coordinator */,
+				0BBFF7A626600FA6004B9C33 /* Domain */,
 				0BBFF7AD2660C748004B9C33 /* LinkedList */,
 				0BBFF7AC2660C052004B9C33 /* Repository */,
-				0BBFF7AB2660BE3D004B9C33 /* Controller */,
-				0BBFF7A626600FA6004B9C33 /* Domain */,
-				0B7DC3AE265F5EA600C743B2 /* Utils */,
-				0B7DC3A9265EC22100C743B2 /* UIUtils */,
-				0BA55826265A2E4600EAE191 /* Coordinator */,
+				0B6D0B3F26B6ABF0005F8E97 /* TimelineView */,
 				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
+				0B7DC3A9265EC22100C743B2 /* UIUtils */,
+				0B7DC3AE265F5EA600C743B2 /* Utils */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
