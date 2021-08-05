@@ -19,6 +19,7 @@
 		0B6A47AF26BC5AB900B21044 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47AE26BC5AB900B21044 /* Swinject */; };
 		0B6A47B226BC5C0700B21044 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */; };
 		0B6A47B426BC5F2200B21044 /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */; };
+		0B6A47B626BC633200B21044 /* Repository in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47B526BC633200B21044 /* Repository */; };
 		0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */; };
 		0B6D0B3E26B55CFE005F8E97 /* RouteTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */; };
 		0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6D0B4026B6AC78005F8E97 /* TimelineView */; };
@@ -101,6 +102,7 @@
 			files = (
 				0BBFF7A82660121C004B9C33 /* Domain in Frameworks */,
 				0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */,
+				0B6A47B626BC633200B21044 /* Repository in Frameworks */,
 				0B529174265D752900BE7307 /* Stevia in Frameworks */,
 				0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */,
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
@@ -306,6 +308,7 @@
 				0B8E48E426A7E98000AFEB19 /* TrippyUI */,
 				0B6D0B4026B6AC78005F8E97 /* TimelineView */,
 				0B6A47AE26BC5AB900B21044 /* Swinject */,
+				0B6A47B526BC633200B21044 /* Repository */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -799,6 +802,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B6A47AD26BC5AB900B21044 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		0B6A47B526BC633200B21044 /* Repository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repository;
 		};
 		0B6D0B4026B6AC78005F8E97 /* TimelineView */ = {
 			isa = XCSwiftPackageProductDependency;
