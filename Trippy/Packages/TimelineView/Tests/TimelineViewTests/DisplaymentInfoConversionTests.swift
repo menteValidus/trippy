@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import TimelineView
+import TestUtils
 
 final class DisplaymentInfoConversionTests: XCTestCase {
     
@@ -111,16 +112,3 @@ final class DisplaymentInfoConversionTests: XCTestCase {
         XCTAssertEqual(expectedResult, pointsData.convertedToDisplaymentInfo(usingCalendar: .current))
     }
 }
-
-private extension Date {
-    
-    static func date(addingDays days: Int,
-                     addingHours hours: Int,
-                     from date: Date) -> Date {
-        let dateComponents = DateComponents(day: days,
-                                            hour: hours)
-        
-        return Calendar.current.date(byAdding: dateComponents, to: date) ?? Date()
-    }
-}
-

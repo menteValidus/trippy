@@ -9,17 +9,20 @@ let package = Package(
         .iOS(.v14)
     ],
     products: [
-        .library(
-            name: "Repository",
-            targets: ["Repository"]),
+        .library(name: "Repository",
+                 targets: ["Repository"]),
+        .library(name: "RepositoryMocks",
+                 targets: ["RepositoryMocks"])
     ],
     dependencies: [
         .package(path: "../Domain"),
     ],
     targets: [
-        .target(
-            name: "Repository",
-            dependencies: ["Domain"]),
+        .target(name: "Repository",
+                dependencies: ["Domain"]),
+        .target(name: "RepositoryMocks",
+                dependencies: ["Domain",
+                               "Repository"]),
         .testTarget(
             name: "RepositoryTests",
             dependencies: ["Repository",

@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/freshOS/Stevia", .upToNextMajor(from: .init("5.1.1"))),
-        .package(path: "../TrippyUI")
+        .package(path: "../TrippyUI"),
+        .package(path: "../TestUtils"),
     ],
     targets: [
         .target(
@@ -26,6 +27,7 @@ let package = Package(
             ]),
         .testTarget(
             name: "TimelineViewTests",
-            dependencies: ["TimelineView"]),
+            dependencies: ["TimelineView",
+                           "TestUtils"]),
     ]
 )

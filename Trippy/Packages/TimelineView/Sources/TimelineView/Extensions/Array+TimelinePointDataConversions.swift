@@ -26,14 +26,14 @@ extension Array where Element == TimelinePointData {
         for index in 0..<count {
             let pointData = self[index]
             
-            let startWaypoint = WaypointData(date: pointData.dateInterval.start,
+            let startWaypoint = TimelineWaypointData(date: pointData.dateInterval.start,
                                              title: pointData.title)
             timelinePieceTypeArray.append(.waypoint(data: startWaypoint))
             
             let stayingDuration = pointData.dateInterval.duration
             timelinePieceTypeArray.append(.staying(duration: stayingDuration))
             
-            let endWaypoint = WaypointData(date: pointData.dateInterval.end)
+            let endWaypoint = TimelineWaypointData(date: pointData.dateInterval.end)
             timelinePieceTypeArray.append(.waypoint(data: endWaypoint))
             
             let nextIndex = index + 1

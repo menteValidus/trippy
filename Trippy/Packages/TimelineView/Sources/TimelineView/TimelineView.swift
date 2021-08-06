@@ -133,7 +133,7 @@ private extension TimelineView {
         return view
     }
     
-    func createWaypointView(withData data: WaypointData) -> UIView {
+    func createWaypointView(withData data: TimelineWaypointData) -> UIView {
         let view = TimelinePointView(withData: data)
         
         return view

@@ -19,7 +19,7 @@ final class TimelinePointView: UIView {
     
     // MARK: -
     
-    private var data: WaypointData = .init(date: Date(),
+    private var data: TimelineWaypointData = .init(date: Date(),
                                            title: "Taganrog")
     
     var dateFormatter: DateFormatter = DateFormatter.dateAndWeekdayDateFormatter
@@ -32,7 +32,7 @@ final class TimelinePointView: UIView {
         configureView()
     }
     
-    init(withData data: WaypointData) {
+    init(withData data: TimelineWaypointData) {
         self.data = data
         
         super.init(frame: .zero)
@@ -148,7 +148,7 @@ import SwiftUI
 
 struct TimelinePoint_Previews: PreviewProvider, UIViewRepresentable {
     
-    let data: WaypointData
+    let data: TimelineWaypointData
     
     func makeUIView(context: Context) -> some UIView {
         TimelinePointView(withData: data)

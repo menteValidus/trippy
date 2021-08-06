@@ -1,5 +1,5 @@
 //
-//  WaypointData.swift
+//  TimelineWaypointData.swift
 //  
 //
 //  Created by Denis Cherniy on 05.08.2021.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct WaypointData {
+// TODO: Use WaypointData form Domain instead!
+struct TimelineWaypointData {
     
     public let date: Date
     public let title: String?
@@ -19,4 +20,4 @@ struct WaypointData {
     }
 }
 
-extension WaypointData: Equatable { }
+extension TimelineWaypointData: Equatable { }

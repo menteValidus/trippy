@@ -12,18 +12,18 @@
 		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
 		0B11F81F26B0775B00D80742 /* RouteCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B11F81E26B0775B00D80742 /* RouteCreation.swift */; };
+		0B29830726BC77730071BAA6 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B29830626BC77730071BAA6 /* Stevia */; };
+		0B29830926BC77770071BAA6 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0B29830826BC77770071BAA6 /* Swinject */; };
+		0B29830D26BC78070071BAA6 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B29830C26BC78070071BAA6 /* TimelineView */; };
 		0B4B445A26BBBA2100104041 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B445926BBBA2100104041 /* Timeline.swift */; };
 		0B4F850526B9A69B009100F3 /* RouteTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4F850426B9A69B009100F3 /* RouteTimelineViewModel.swift */; };
 		0B52916E265D691900BE7307 /* CornerWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52916D265D691900BE7307 /* CornerWaypoint.swift */; };
-		0B529174265D752900BE7307 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = 0B529173265D752900BE7307 /* Stevia */; };
-		0B6A47AF26BC5AB900B21044 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47AE26BC5AB900B21044 /* Swinject */; };
 		0B6A47B226BC5C0700B21044 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B126BC5C0700B21044 /* DependencyInjector.swift */; };
 		0B6A47B426BC5F2200B21044 /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47B326BC5F2200B21044 /* RepositoriesAssembly.swift */; };
 		0B6A47B626BC633200B21044 /* Repository in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6A47B526BC633200B21044 /* Repository */; };
 		0B6A47BB26BC6A5E00B21044 /* RouteCreationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A47BA26BC6A5E00B21044 /* RouteCreationViewModelTests.swift */; };
 		0B6D0B3C26B5517F005F8E97 /* RouteTimelineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3B26B5517F005F8E97 /* RouteTimelineCoordinator.swift */; };
 		0B6D0B3E26B55CFE005F8E97 /* RouteTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D0B3D26B55CFE005F8E97 /* RouteTimeline.swift */; };
-		0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B6D0B4026B6AC78005F8E97 /* TimelineView */; };
 		0B7DC3A6265EB16700C743B2 /* RouteCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3A5265EB16700C743B2 /* RouteCreationViewModel.swift */; };
 		0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AA265EC2C300C743B2 /* UIUtils */; };
 		0B7DC3AD265F472A00C743B2 /* IntermediateWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypoint.swift */; };
@@ -95,6 +95,7 @@
 		0BBFF7A626600FA6004B9C33 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
 		0BBFF7AB2660BE3D004B9C33 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
 		0BBFF7AC2660C052004B9C33 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Repository; sourceTree = "<group>"; };
+		0BCAFCB126BDD34100F6B775 /* TestUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUtils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +104,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBFF7A82660121C004B9C33 /* Domain in Frameworks */,
-				0B6D0B4126B6AC78005F8E97 /* TimelineView in Frameworks */,
 				0B6A47B626BC633200B21044 /* Repository in Frameworks */,
-				0B529174265D752900BE7307 /* Stevia in Frameworks */,
 				0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */,
+				0B29830726BC77730071BAA6 /* Stevia in Frameworks */,
+				0B29830D26BC78070071BAA6 /* TimelineView in Frameworks */,
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
 				0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */,
 				0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */,
-				0B6A47AF26BC5AB900B21044 /* Swinject in Frameworks */,
+				0B29830926BC77770071BAA6 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +178,7 @@
 				0BA55826265A2E4600EAE191 /* Coordinator */,
 				0BBFF7A626600FA6004B9C33 /* Domain */,
 				0BBFF7AC2660C052004B9C33 /* Repository */,
+				0BCAFCB126BDD34100F6B775 /* TestUtils */,
 				0B6D0B3F26B6ABF0005F8E97 /* TimelineView */,
 				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
 				0B7DC3A9265EC22100C743B2 /* UIUtils */,
@@ -328,14 +330,14 @@
 			name = Trippy;
 			packageProductDependencies = (
 				0B0EFE74265CBEDA00C2EFC2 /* Coordinator */,
-				0B529173265D752900BE7307 /* Stevia */,
 				0B7DC3AA265EC2C300C743B2 /* UIUtils */,
 				0B7DC3AF265F5F2E00C743B2 /* Utils */,
 				0BBFF7A72660121C004B9C33 /* Domain */,
 				0B8E48E426A7E98000AFEB19 /* TrippyUI */,
-				0B6D0B4026B6AC78005F8E97 /* TimelineView */,
-				0B6A47AE26BC5AB900B21044 /* Swinject */,
 				0B6A47B526BC633200B21044 /* Repository */,
+				0B29830626BC77730071BAA6 /* Stevia */,
+				0B29830826BC77770071BAA6 /* Swinject */,
+				0B29830C26BC78070071BAA6 /* TimelineView */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -821,23 +823,23 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Coordinator;
 		};
-		0B529173265D752900BE7307 /* Stevia */ = {
+		0B29830626BC77730071BAA6 /* Stevia */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B529172265D752900BE7307 /* XCRemoteSwiftPackageReference "Stevia" */;
 			productName = Stevia;
 		};
-		0B6A47AE26BC5AB900B21044 /* Swinject */ = {
+		0B29830826BC77770071BAA6 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B6A47AD26BC5AB900B21044 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
+		0B29830C26BC78070071BAA6 /* TimelineView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimelineView;
+		};
 		0B6A47B526BC633200B21044 /* Repository */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Repository;
-		};
-		0B6D0B4026B6AC78005F8E97 /* TimelineView */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TimelineView;
 		};
 		0B7DC3AA265EC2C300C743B2 /* UIUtils */ = {
 			isa = XCSwiftPackageProductDependency;

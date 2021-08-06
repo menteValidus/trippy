@@ -1,5 +1,6 @@
 import XCTest
 @testable import TimelineView
+import TestUtils
 
 final class CompletedDaysDurationTests: XCTestCase {
     
@@ -60,14 +61,5 @@ final class CompletedDaysDurationTests: XCTestCase {
                                 title: ""))
         
         XCTAssertEqual(7 * 86400, pointsData.computeCompletedDaysDurationInSecs(withCalendar: .current))
-    }
-}
-
-private extension Date {
-    
-    static func date(daysAgo: Int, from date: Date) -> Date {
-        let dateComponents = DateComponents(day: -daysAgo)
-        
-        return Calendar.current.date(byAdding: dateComponents, to: date) ?? Date()
     }
 }

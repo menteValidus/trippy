@@ -23,3 +23,10 @@ public struct WaypointData {
 }
 
 extension WaypointData: Equatable { }
+
+extension WaypointData: Comparable {
+    
+    public static func < (lhs: WaypointData, rhs: WaypointData) -> Bool {
+        lhs.date < rhs.date
+    }
+}

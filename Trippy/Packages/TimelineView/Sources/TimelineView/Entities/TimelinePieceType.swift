@@ -12,7 +12,7 @@ enum TimelinePieceType {
     case emptySpace(duration: TimeInterval)
     case inTransit(duration: TimeInterval)
     case staying(duration: TimeInterval)
-    case waypoint(data: WaypointData)
+    case waypoint(data: TimelineWaypointData)
 }
 
 extension TimelinePieceType: Equatable {
