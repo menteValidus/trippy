@@ -31,7 +31,7 @@ final class RouteControllerTests: XCTestCase {
     func testEmptyRepositoryIntegration() {
         let expectation = XCTestExpectation()
         
-        sut.getSortedWaypoints()
+        sut.getWaypoints()
             .sink { _ in
                 
             } receiveValue: { data in
@@ -57,11 +57,10 @@ final class RouteControllerTests: XCTestCase {
                                        name: "2",
                                        date: Date())
         let expectedData = [oldWaypoint, newWaypoint]
-        let unorderedData = [newWaypoint, oldWaypoint]
         
-        routeRepositoryMock.waypointDataList = unorderedData
+        routeRepositoryMock.waypointDataList = expectedData
         
-        sut.getSortedWaypoints()
+        sut.getWaypoints()
             .sink { _ in
                 
             } receiveValue: { data in

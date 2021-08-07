@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0B095CCA26B1CE9100611B7F /* AddWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B095CC926B1CE9100611B7F /* AddWaypoint.swift */; };
+		0B0D295E26BEC7F00038C6C0 /* Repository in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0D295D26BEC7F00038C6C0 /* Repository */; };
+		0B0D296026BEC8320038C6C0 /* RepositoryMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0D295F26BEC8320038C6C0 /* RepositoryMocks */; };
+		0B0D296226BECD940038C6C0 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0D296126BECD940038C6C0 /* Domain */; };
+		0B0D296426BECD940038C6C0 /* DomainMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0D296326BECD940038C6C0 /* DomainMocks */; };
 		0B0EFE70265C248200C2EFC2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE6F265C248200C2EFC2 /* AppCoordinator.swift */; };
 		0B0EFE72265C276600C2EFC2 /* RouteCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0EFE71265C276600C2EFC2 /* RouteCreationCoordinator.swift */; };
 		0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0EFE74265CBEDA00C2EFC2 /* Coordinator */; };
@@ -35,7 +39,6 @@
 		0BA557F62658ED2900EAE191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA557F52658ED2900EAE191 /* SceneDelegate.swift */; };
 		0BA557FD2658ED2A00EAE191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FC2658ED2A00EAE191 /* Assets.xcassets */; };
 		0BA558002658ED2A00EAE191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA557FE2658ED2A00EAE191 /* LaunchScreen.storyboard */; };
-		0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */; };
 		0BA558162658ED2A00EAE191 /* TrippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA558152658ED2A00EAE191 /* TrippyUITests.swift */; };
 		0BBFF7A82660121C004B9C33 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBFF7A72660121C004B9C33 /* Domain */; };
 /* End PBXBuildFile section */
@@ -85,7 +88,6 @@
 		0BA557FF2658ED2A00EAE191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BA558012658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA558062658ED2A00EAE191 /* TrippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyTests.swift; sourceTree = "<group>"; };
 		0BA5580C2658ED2A00EAE191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA558112658ED2A00EAE191 /* TrippyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrippyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA558152658ED2A00EAE191 /* TrippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyUITests.swift; sourceTree = "<group>"; };
@@ -119,6 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0D296426BECD940038C6C0 /* DomainMocks in Frameworks */,
+				0B0D296226BECD940038C6C0 /* Domain in Frameworks */,
+				0B0D296026BEC8320038C6C0 /* RepositoryMocks in Frameworks */,
+				0B0D295E26BEC7F00038C6C0 /* Repository in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +283,6 @@
 			children = (
 				0B6A47B826BC6A4300B21044 /* Views */,
 				0BA55827265A342B00EAE191 /* UnitTestPlan.xctestplan */,
-				0BA5580A2658ED2A00EAE191 /* TrippyTests.swift */,
 				0BA5580C2658ED2A00EAE191 /* Info.plist */,
 			);
 			path = TrippyTests;
@@ -357,6 +362,12 @@
 				0BA558082658ED2A00EAE191 /* PBXTargetDependency */,
 			);
 			name = TrippyTests;
+			packageProductDependencies = (
+				0B0D295D26BEC7F00038C6C0 /* Repository */,
+				0B0D295F26BEC8320038C6C0 /* RepositoryMocks */,
+				0B0D296126BECD940038C6C0 /* Domain */,
+				0B0D296326BECD940038C6C0 /* DomainMocks */,
+			);
 			productName = TrippyTests;
 			productReference = 0BA558062658ED2A00EAE191 /* TrippyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -480,7 +491,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BA5580B2658ED2A00EAE191 /* TrippyTests.swift in Sources */,
 				0B6A47BB26BC6A5E00B21044 /* RouteCreationViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,6 +829,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B0D295D26BEC7F00038C6C0 /* Repository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Repository;
+		};
+		0B0D295F26BEC8320038C6C0 /* RepositoryMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RepositoryMocks;
+		};
+		0B0D296126BECD940038C6C0 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		0B0D296326BECD940038C6C0 /* DomainMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainMocks;
+		};
 		0B0EFE74265CBEDA00C2EFC2 /* Coordinator */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Coordinator;

@@ -31,12 +31,16 @@ final class RouteCreationViewModel: ViewModel {
          routeRepository: RouteRepository) {
         self.flow = flow
         self.routeRepository = routeRepository
-        
     }
     
-    private func getWaypoints() {
+    func loadData() {
         let waypoints = routeRepository.getAll()
         
+        setCornerWaypoints(usingWaypoints: waypoints)
+        setIntermediateWaypoints(usingWaypoints: waypoints)
+    }
+    
+    private func setCornerWaypoints(usingWaypoints waypoints: [WaypointData]) {
         guard let firstWaypoint = waypoints.first,
               let lastWaypoint = waypoints.last else {
             initializeStartingWaypoints()
@@ -45,7 +49,9 @@ final class RouteCreationViewModel: ViewModel {
         
         startWaypoint = firstWaypoint
         endWaypoint = lastWaypoint
-        
+    }
+    
+    private func setIntermediateWaypoints(usingWaypoints waypoints: [WaypointData]) {
         guard waypoints.count > 2 else {
             intermediateWaypoints = []
             return
@@ -56,13 +62,9 @@ final class RouteCreationViewModel: ViewModel {
     }
     
     private func initializeStartingWaypoints() {
-        startWaypoint = .init(id: UUID().uuidString,
-                              name: "Unreal country, unknown city",
-                              date: .init())
-        
-        endWaypoint = .init(id: UUID().uuidString,
-                            name: "Unreal country, unknown city",
-                            date: .init())
+        // TODO: Use geocoding tool to get data for it
+        startWaypoint = nil
+        endWaypoint = nil
     }
     
     func insertWaypoint(at position: Int) {

@@ -12,7 +12,7 @@ import Repository
 
 public protocol IRouteController: AnyObject {
     
-    func getSortedWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError>
+    func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError>
 }
 
 public enum RouteControllerError: Error {
@@ -27,15 +27,7 @@ public final class RouteController: IRouteController {
         self.routeRepository = routeRepository
     }
     
-    public func getSortedWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError> {
-        getWaypoints()
-            .map { waypoints in
-                waypoints.sorted { lhs, rhs in lhs < rhs}
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    private func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError> {
+    public func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError> {
         Deferred {
             Future<[WaypointData], RouteControllerError> { [weak self] promise in
                 guard let waypointData = self?.routeRepository.getAll() else {
