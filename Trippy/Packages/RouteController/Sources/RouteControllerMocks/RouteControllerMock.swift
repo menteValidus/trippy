@@ -19,6 +19,12 @@ public final class RouteControllerMock: IRouteController {
             .asResultPublisher()
     }()
     
+    public lazy var addWaypointsPublisher: ResultPublisher<Void, RouteControllerError> = {
+        Just(())
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
+    }()
+    
     public lazy var initiateStartWaypointPublisher: ResultPublisher<WaypointData, RouteControllerError> = {
         Just(.mock)
             .setFailureType(to: RouteControllerError.self)
@@ -29,6 +35,10 @@ public final class RouteControllerMock: IRouteController {
     
     public func getWaypoints() -> ResultPublisher<[WaypointData], RouteControllerError> {
         getWaypointsPublisher
+    }
+    
+    public func addWaypoint(waypointData: WaypointData) -> ResultPublisher<Void, RouteControllerError> {
+        addWaypointsPublisher
     }
     
     public func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError> {

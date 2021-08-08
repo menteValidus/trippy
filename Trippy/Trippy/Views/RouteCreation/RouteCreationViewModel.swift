@@ -24,7 +24,6 @@ final class RouteCreationViewModel: ViewModel {
     
     private let flow: Flow
     
-    private let routeRepository: IRouteRepository
     private let routeController: IRouteController
     
     private var cancelBag: Set<AnyCancellable> = []
@@ -36,19 +35,25 @@ final class RouteCreationViewModel: ViewModel {
     // MARK: - Initialization
     
     init(flow: Flow,
-         // TODO: Remove route repository and use route controller
-         routeRepository: IRouteRepository,
          routeController: IRouteController) {
         self.flow = flow
-        self.routeRepository = routeRepository
         self.routeController = routeController
     }
     
     func loadData() {
-        let waypoints = routeRepository.getAll()
-        
-        setCornerWaypoints(usingWaypoints: waypoints)
-        setIntermediateWaypoints(usingWaypoints: waypoints)
+        routeController.getWaypoints()
+            .sink { [weak self] result in
+                switch result {
+                case .success(let data):
+                    self?.setCornerWaypoints(usingWaypoints: data)
+                    self?.setIntermediateWaypoints(usingWaypoints: data)
+                    
+                case .failure:
+                    // TODO: Push event to common error publisher
+                    break
+                }
+            }
+            .store(in: &cancelBag)
     }
     
     private func setCornerWaypoints(usingWaypoints waypoints: [WaypointData]) {
@@ -101,7 +106,17 @@ final class RouteCreationViewModel: ViewModel {
         
         intermediateWaypoints.insert(waypointData,
                                      at: position)
-        routeRepository.insert(waypointData)
+        routeController.addWaypoint(waypointData: waypointData)
+            .sink { result in
+                switch result {
+                case .success:
+                    break
+                    
+                case .failure:
+                    break // TODO: Handle error
+                }
+            }
+            .store(in: &cancelBag)
     }
     
     func proceed() {

@@ -14,6 +14,7 @@ import Utils
 public protocol IRouteController: AnyObject {
     
     func getWaypoints() -> ResultPublisher<[WaypointData], RouteControllerError>
+    func addWaypoint(waypointData: WaypointData) -> ResultPublisher<Void, RouteControllerError>
     func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError>
 }
 
@@ -41,6 +42,14 @@ public final class RouteController: IRouteController {
             }
         }
         .asResultPublisher()
+    }
+    
+    public func addWaypoint(waypointData: WaypointData) -> ResultPublisher<Void, RouteControllerError> {
+        self.routeRepository.insert(waypointData)
+            .mapError { _ in
+                RouteControllerError.unknown
+            }
+            .asResultPublisher()
     }
     
     public func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError> {

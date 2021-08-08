@@ -17,21 +17,17 @@ import RouteControllerMocks
 class RouteCreationViewModelTests: XCTestCase {
 
     var sut: RouteCreationViewModel!
-    var inMemoryRepository: InMemoryRouteRepositoryMock!
     var routeController: RouteControllerMock!
     
     var cancelBag: Set<AnyCancellable> = []
     
     override func setUp() {
-        inMemoryRepository = .init()
         routeController = .init()
         sut = .init(flow: .init(),
-                    routeRepository: inMemoryRepository,
                     routeController: routeController)
     }
     
     override func tearDown() {
-        inMemoryRepository = nil
         sut = nil
         cancelBag = []
     }
@@ -43,7 +39,11 @@ extension RouteCreationViewModelTests {
     
     func testEmptyRepositoryStartWaypointNotSet() {
         let expectation = XCTestExpectation()
-        inMemoryRepository.waypointDataList = []
+        
+        routeController.getWaypointsPublisher = Just([])
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
+        
         let expectedStartWaypoint = WaypointData(id: UUID().uuidString,
                                                  name: "City",
                                                  date: Date())
@@ -69,7 +69,11 @@ extension RouteCreationViewModelTests {
     
     func testEmptyRepositoryEndWaypointNotSet() {
         let expectation = XCTestExpectation()
-        inMemoryRepository.waypointDataList = []
+        
+        routeController.getWaypointsPublisher = Just([])
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
+        
         let expectedEndWaypoint = WaypointData(id: UUID().uuidString,
                                                  name: "City",
                                                  date: Date())
@@ -95,7 +99,9 @@ extension RouteCreationViewModelTests {
     
     func testEmptyRepositoryIntermediateWaypointNotSet() {
         let expectation = XCTestExpectation()
-        inMemoryRepository.waypointDataList = []
+        routeController.getWaypointsPublisher = Just([])
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
         
         sut.$intermediateWaypoints
             .dropFirst()
@@ -115,7 +121,9 @@ extension RouteCreationViewModelTests {
     
     func testTwoItemsRepositoryIntermediateWaypointNotSet() {
         let expectation = XCTestExpectation()
-        inMemoryRepository.waypointDataList = [.mock, .mock]
+        routeController.getWaypointsPublisher = Just([.mock, .mock])
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
         
         sut.$intermediateWaypoints
             .dropFirst()
@@ -139,7 +147,9 @@ extension RouteCreationViewModelTests {
         
         let startWaypoint = WaypointData.mock
         let endWaypoint = WaypointData.mock
-        inMemoryRepository.waypointDataList = [startWaypoint, endWaypoint]
+        routeController.getWaypointsPublisher = Just([startWaypoint, endWaypoint])
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
         
         sut.$startWaypoint
             .dropFirst()

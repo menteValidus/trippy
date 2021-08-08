@@ -46,7 +46,6 @@ struct RouteCreation: View {
                         .ignoresSafeArea()
                         .frame(maxWidth: .infinity,
                                maxHeight: .infinity))
-        .navigationBarHidden(true)
     }
 }
 
@@ -100,7 +99,6 @@ struct RouteCreation_Previews: PreviewProvider {
         let repository = InMemoryRouteRepository()
         let routeController = RouteController(routeRepository: repository)
         let vm = RouteCreationViewModel(flow: .init(),
-                                        routeRepository: repository,
                                         routeController: routeController)
         vm.insertWaypoint(at: 0)
         
