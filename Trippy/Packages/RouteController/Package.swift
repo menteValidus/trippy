@@ -12,6 +12,9 @@ let package = Package(
         .library(
             name: "RouteController",
             targets: ["RouteController"]),
+        .library(
+            name: "RouteControllerMocks",
+            targets: ["RouteControllerMocks"])
     ],
     dependencies: [
         .package(path: "../Repository"),
@@ -22,6 +25,12 @@ let package = Package(
         .target(
             name: "RouteController",
             dependencies: ["Domain"]),
+        .target(
+            name: "RouteControllerMocks",
+            dependencies: ["RouteController",
+                           "Domain",
+                           .product(name: "DomainMocks",
+                                    package: "Domain")]),
         .testTarget(
             name: "ControllerTests",
             dependencies: ["RouteController",

@@ -13,6 +13,7 @@ import Repository
 public protocol IRouteController: AnyObject {
     
     func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError>
+    func initiateStartWaypoint() -> AnyPublisher<WaypointData, RouteControllerError>
 }
 
 public enum RouteControllerError: Error {
@@ -39,5 +40,14 @@ public final class RouteController: IRouteController {
             }
         }
         .eraseToAnyPublisher()
+    }
+    
+    public func initiateStartWaypoint() -> AnyPublisher<WaypointData, RouteControllerError> {
+        // TODO: Connect to actual service
+        Just(WaypointData(id: UUID().uuidString,
+                          name: "Somewhere Unknownburg",
+                          date: Date()))
+            .setFailureType(to: RouteControllerError.self)
+            .eraseToAnyPublisher()
     }
 }
