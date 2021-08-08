@@ -11,17 +11,23 @@ import RepositoryMocks
 import Combine
 import Domain
 import DomainMocks
+import RouteController
+import RouteControllerMocks
 
 class RouteCreationViewModelTests: XCTestCase {
 
     var sut: RouteCreationViewModel!
     var inMemoryRepository: InMemoryRouteRepositoryMock!
+    var routeController: RouteControllerMock!
+    
     var cancelBag: Set<AnyCancellable> = []
     
     override func setUp() {
         inMemoryRepository = .init()
+        routeController = .init()
         sut = .init(flow: .init(),
-                    routeRepository: inMemoryRepository)
+                    routeRepository: inMemoryRepository,
+                    routeController: routeController)
     }
     
     override func tearDown() {
@@ -38,11 +44,17 @@ extension RouteCreationViewModelTests {
     func testEmptyRepositoryStartWaypointNotSet() {
         let expectation = XCTestExpectation()
         inMemoryRepository.waypointDataList = []
+        let expectedStartWaypoint = WaypointData(id: UUID().uuidString,
+                                                 name: "City",
+                                                 date: Date())
+        routeController.initiateStartWaypointPublisher = Just(expectedStartWaypoint)
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
         
         sut.$startWaypoint
             .dropFirst()
             .sink { data in
-                guard data == nil else {
+                guard data == expectedStartWaypoint else {
                     XCTFail("Should be nil")
                     return
                 }
@@ -58,11 +70,17 @@ extension RouteCreationViewModelTests {
     func testEmptyRepositoryEndWaypointNotSet() {
         let expectation = XCTestExpectation()
         inMemoryRepository.waypointDataList = []
+        let expectedEndWaypoint = WaypointData(id: UUID().uuidString,
+                                                 name: "City",
+                                                 date: Date())
+        routeController.initiateStartWaypointPublisher = Just(expectedEndWaypoint)
+            .setFailureType(to: RouteControllerError.self)
+            .asResultPublisher()
         
         sut.$endWaypoint
             .dropFirst()
             .sink { data in
-                guard data == nil else {
+                guard data == expectedEndWaypoint else {
                     XCTFail("Should be nil")
                     return
                 }

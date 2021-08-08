@@ -9,26 +9,29 @@ import RouteController
 import Domain
 import DomainMocks
 import Combine
+import Utils
 
 public final class RouteControllerMock: IRouteController {
     
-    public lazy var getWaypointsPublisher: AnyPublisher<[WaypointData], RouteControllerError> = {
+    public lazy var getWaypointsPublisher: ResultPublisher<[WaypointData], RouteControllerError> = {
         Just([])
             .setFailureType(to: RouteControllerError.self)
-            .eraseToAnyPublisher()
+            .asResultPublisher()
     }()
     
-    public lazy var initiateStartWaypointPublisher: AnyPublisher<WaypointData, RouteControllerError> = {
+    public lazy var initiateStartWaypointPublisher: ResultPublisher<WaypointData, RouteControllerError> = {
         Just(.mock)
             .setFailureType(to: RouteControllerError.self)
-            .eraseToAnyPublisher()
+            .asResultPublisher()
     }()
     
-    public func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError> {
+    public init() { }
+    
+    public func getWaypoints() -> ResultPublisher<[WaypointData], RouteControllerError> {
         getWaypointsPublisher
     }
     
-    public func initiateStartWaypoint() -> AnyPublisher<WaypointData, RouteControllerError> {
+    public func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError> {
         initiateStartWaypointPublisher
     }
 }

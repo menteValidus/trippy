@@ -9,6 +9,8 @@ import Foundation
 import Utils
 import Domain
 import Repository
+import RouteController
+import Combine
 
 // TODO: REMOVE IT AFTER WAYPOINT CREATION LOGIC will be created.
 import TestUtils
@@ -22,7 +24,10 @@ final class RouteCreationViewModel: ViewModel {
     
     private let flow: Flow
     
-    private let routeRepository: RouteRepository
+    private let routeRepository: IRouteRepository
+    private let routeController: IRouteController
+    
+    private var cancelBag: Set<AnyCancellable> = []
     
     @Published var intermediateWaypoints: [WaypointData] = []
     @Published var startWaypoint: WaypointData?
@@ -31,9 +36,12 @@ final class RouteCreationViewModel: ViewModel {
     // MARK: - Initialization
     
     init(flow: Flow,
-         routeRepository: RouteRepository) {
+         // TODO: Remove route repository and use route controller
+         routeRepository: IRouteRepository,
+         routeController: IRouteController) {
         self.flow = flow
         self.routeRepository = routeRepository
+        self.routeController = routeController
     }
     
     func loadData() {
@@ -65,9 +73,18 @@ final class RouteCreationViewModel: ViewModel {
     }
     
     private func initializeStartingWaypoints() {
-        // TODO: Use geocoding tool to get data for it
-        startWaypoint = nil
-        endWaypoint = nil
+        routeController.initiateStartWaypoint()
+            .sink { [weak self] result in
+                switch result {
+                case .success(let data):
+                    self?.startWaypoint = data
+                    self?.endWaypoint = self?.startWaypoint
+                    
+                case .failure:
+                    break
+                }
+            }
+            .store(in: &cancelBag)
     }
     
     func insertWaypoint(at position: Int) {

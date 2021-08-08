@@ -20,15 +20,19 @@ let package = Package(
         .package(path: "../Repository"),
         .package(path: "../Domain"),
         .package(path: "../TestUtils"),
+        .package(path: "../Utils"),
     ],
     targets: [
         .target(
             name: "RouteController",
-            dependencies: ["Domain"]),
+            dependencies: ["Domain",
+                           "Utils",
+                           "Repository"]),
         .target(
             name: "RouteControllerMocks",
             dependencies: ["RouteController",
                            "Domain",
+                           "Utils",
                            .product(name: "DomainMocks",
                                     package: "Domain")]),
         .testTarget(

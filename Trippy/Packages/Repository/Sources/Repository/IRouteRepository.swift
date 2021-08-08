@@ -12,7 +12,7 @@ public enum RepositoryError: Error {
     
 }
 
-public protocol RouteRepository: AnyObject {
+public protocol IRouteRepository: AnyObject {
     
     func getAll() -> [WaypointData]
     func insert(_ waypointData: WaypointData) -> AnyPublisher<Void, RepositoryError>

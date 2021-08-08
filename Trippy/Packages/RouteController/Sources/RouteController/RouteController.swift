@@ -9,11 +9,12 @@ import Foundation
 import Domain
 import Combine
 import Repository
+import Utils
 
 public protocol IRouteController: AnyObject {
     
-    func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError>
-    func initiateStartWaypoint() -> AnyPublisher<WaypointData, RouteControllerError>
+    func getWaypoints() -> ResultPublisher<[WaypointData], RouteControllerError>
+    func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError>
 }
 
 public enum RouteControllerError: Error {
@@ -22,13 +23,13 @@ public enum RouteControllerError: Error {
 
 public final class RouteController: IRouteController {
     
-    private let routeRepository: RouteRepository
+    private let routeRepository: IRouteRepository
     
-    public init(routeRepository: RouteRepository) {
+    public init(routeRepository: IRouteRepository) {
         self.routeRepository = routeRepository
     }
     
-    public func getWaypoints() -> AnyPublisher<[WaypointData], RouteControllerError> {
+    public func getWaypoints() -> ResultPublisher<[WaypointData], RouteControllerError> {
         Deferred {
             Future<[WaypointData], RouteControllerError> { [weak self] promise in
                 guard let waypointData = self?.routeRepository.getAll() else {
@@ -39,15 +40,15 @@ public final class RouteController: IRouteController {
                 promise(.success(waypointData))
             }
         }
-        .eraseToAnyPublisher()
+        .asResultPublisher()
     }
     
-    public func initiateStartWaypoint() -> AnyPublisher<WaypointData, RouteControllerError> {
+    public func initiateStartWaypoint() -> ResultPublisher<WaypointData, RouteControllerError> {
         // TODO: Connect to actual service
         Just(WaypointData(id: UUID().uuidString,
                           name: "Somewhere Unknownburg",
                           date: Date()))
             .setFailureType(to: RouteControllerError.self)
-            .eraseToAnyPublisher()
+            .asResultPublisher()
     }
 }

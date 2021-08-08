@@ -10,7 +10,7 @@ import Domain
 import Combine
 import Repository
 
-public final class InMemoryRouteRepositoryMock: RouteRepository {
+public final class InMemoryRouteRepositoryMock: IRouteRepository {
     
     public var waypointDataList: [WaypointData] = []
     

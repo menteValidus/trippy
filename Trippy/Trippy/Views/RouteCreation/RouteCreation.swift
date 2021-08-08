@@ -92,12 +92,16 @@ private extension RouteCreation {
 #if DEBUG
 
 import Repository
+import RouteController
 
 struct RouteCreation_Previews: PreviewProvider {
     
     static var previews: some View {
+        let repository = InMemoryRouteRepository()
+        let routeController = RouteController(routeRepository: repository)
         let vm = RouteCreationViewModel(flow: .init(),
-                                        routeRepository: InMemoryRouteRepository())
+                                        routeRepository: repository,
+                                        routeController: routeController)
         vm.insertWaypoint(at: 0)
         
         return RouteCreation(viewModel: vm)

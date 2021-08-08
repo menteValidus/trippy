@@ -11,7 +11,7 @@ import Repository
 final class RepositoriesAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(RouteRepository.self) { _ in
+        container.register(IRouteRepository.self) { _ in
             InMemoryRouteRepository()
         }
     }

@@ -11,7 +11,8 @@ final class DependencyInjector {
     
     static let shared = DependencyInjector()
     
-    private let assembler = Assembler([RepositoriesAssembly()])
+    private let assembler = Assembler([RepositoriesAssembly(),
+                                       ControllersAssembly()])
     
     private init() { }
     

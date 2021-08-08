@@ -9,7 +9,7 @@ import Foundation
 import Domain
 import Combine
 
-public final class InMemoryRouteRepository: RouteRepository {
+public final class InMemoryRouteRepository: IRouteRepository {
     
     var waypointDataList: [WaypointData] = []
     
