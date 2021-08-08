@@ -32,6 +32,7 @@
 		0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AA265EC2C300C743B2 /* UIUtils */; };
 		0B7DC3AD265F472A00C743B2 /* IntermediateWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7DC3AC265F472A00C743B2 /* IntermediateWaypoint.swift */; };
 		0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7DC3AF265F5F2E00C743B2 /* Utils */; };
+		0B8CC03926BFE9FC00ECB4A3 /* TestUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8CC03826BFE9FC00ECB4A3 /* TestUtils */; };
 		0B8E48E526A7E98000AFEB19 /* TrippyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8E48E426A7E98000AFEB19 /* TrippyUI */; };
 		0B920B4A26B334D500830932 /* GoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B920B4926B334D500830932 /* GoButton.swift */; };
 		0B920B4C26B3396E00830932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B920B4B26B3396E00830932 /* Localizable.strings */; };
@@ -113,6 +114,7 @@
 				0B7DC3B0265F5F2E00C743B2 /* Utils in Frameworks */,
 				0B7DC3AB265EC2C300C743B2 /* UIUtils in Frameworks */,
 				0B0EFE75265CBEDA00C2EFC2 /* Coordinator in Frameworks */,
+				0B8CC03926BFE9FC00ECB4A3 /* TestUtils in Frameworks */,
 				0B29830926BC77770071BAA6 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +345,7 @@
 				0B29830626BC77730071BAA6 /* Stevia */,
 				0B29830826BC77770071BAA6 /* Swinject */,
 				0B29830C26BC78070071BAA6 /* TimelineView */,
+				0B8CC03826BFE9FC00ECB4A3 /* TestUtils */,
 			);
 			productName = Trippy;
 			productReference = 0BA557F02658ED2900EAE191 /* Trippy.app */;
@@ -874,6 +877,10 @@
 		0B7DC3AF265F5F2E00C743B2 /* Utils */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Utils;
+		};
+		0B8CC03826BFE9FC00ECB4A3 /* TestUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TestUtils;
 		};
 		0B8E48E426A7E98000AFEB19 /* TrippyUI */ = {
 			isa = XCSwiftPackageProductDependency;
