@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "Controller",
+    name: "RouteController",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "Controller",
-            targets: ["Controller"]),
+            name: "RouteController",
+            targets: ["RouteController"]),
     ],
     dependencies: [
         .package(path: "../Repository"),
@@ -20,11 +20,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Controller",
+            name: "RouteController",
             dependencies: ["Domain"]),
         .testTarget(
             name: "ControllerTests",
-            dependencies: ["Controller",
+            dependencies: ["RouteController",
                            "TestUtils",
                            .product(name: "RepositoryMocks",
                                     package: "Repository")]),

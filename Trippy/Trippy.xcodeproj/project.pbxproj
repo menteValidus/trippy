@@ -96,7 +96,7 @@
 		0BA55826265A2E4600EAE191 /* Coordinator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Coordinator; sourceTree = "<group>"; };
 		0BA55827265A342B00EAE191 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		0BBFF7A626600FA6004B9C33 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
-		0BBFF7AB2660BE3D004B9C33 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
+		0BBFF7AB2660BE3D004B9C33 /* RouteController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RouteController; sourceTree = "<group>"; };
 		0BBFF7AC2660C052004B9C33 /* Repository */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Repository; sourceTree = "<group>"; };
 		0BCAFCB126BDD34100F6B775 /* TestUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUtils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,10 +182,10 @@
 		0B0EFE7D265CD1CA00C2EFC2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				0BBFF7AB2660BE3D004B9C33 /* Controller */,
 				0BA55826265A2E4600EAE191 /* Coordinator */,
 				0BBFF7A626600FA6004B9C33 /* Domain */,
 				0BBFF7AC2660C052004B9C33 /* Repository */,
+				0BBFF7AB2660BE3D004B9C33 /* RouteController */,
 				0BCAFCB126BDD34100F6B775 /* TestUtils */,
 				0B6D0B3F26B6ABF0005F8E97 /* TimelineView */,
 				0B0EFE79265CC6BA00C2EFC2 /* TrippyUI */,
