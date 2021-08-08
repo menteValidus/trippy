@@ -10,6 +10,9 @@ import Utils
 import Domain
 import Repository
 
+// TODO: REMOVE IT AFTER WAYPOINT CREATION LOGIC will be created.
+import TestUtils
+
 final class RouteCreationViewModel: ViewModel {
     
     struct Flow {
@@ -68,10 +71,20 @@ final class RouteCreationViewModel: ViewModel {
     }
     
     func insertWaypoint(at position: Int) {
-        intermediateWaypoints.insert(WaypointData(id: "",
-                                                  name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
-                                                  date: Date()),
+        let mockIncrementedDate: Date
+        if intermediateWaypoints.isEmpty {
+            mockIncrementedDate = Date.date(addingDays: 1, addingHours: 1, from: startWaypoint!.date)
+        } else {
+            mockIncrementedDate = Date.date(addingDays: 1, addingHours: 1, from: intermediateWaypoints.first!.date)
+        }
+        
+        let waypointData = WaypointData(id: "",
+                                       name: "Taganrog, Grecheskaya 104A|\(intermediateWaypoints.count)",
+                                       date: mockIncrementedDate)
+        
+        intermediateWaypoints.insert(waypointData,
                                      at: position)
+        routeRepository.insert(waypointData)
     }
     
     func proceed() {
